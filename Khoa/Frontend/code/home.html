@@ -22,9 +22,39 @@
             }
     
         }
+        
     </style>
 </head>
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+// Unix timestamp (in seconds) to count down to
+var twoDaysFromNow = (new Date().getTime() / 1000) + (86400 * 2) + 1;
+
+// Set up FlipDown
+var flipdown = new FlipDown(twoDaysFromNow)
+
+  // Start the countdown
+  .start()
+
+  // Do something when the countdown ends
+  .ifEnded(() => {
+    console.log('The countdown has ended!');
+  });
+
+// Toggle theme
+var interval = setInterval(() => {
+  let body = document.body;
+  body.classList.toggle('light-theme');
+  body.querySelector('#flipdown').classList.toggle('flipdown__theme-dark');
+  body.querySelector('#flipdown').classList.toggle('flipdown__theme-light');
+}, 5000);
+
+var ver = document.getElementById('ver');
+ver.innerHTML = flipdown.version;
+});
+    </script>
     <div class="pagehome">
         <div class="header_homepage">
             <div class="header_top_homepage">
@@ -249,6 +279,23 @@
                       </div>
                 </div>
               </div>
+        </div>
+    </div>
+    <div class="bottom_saler">
+       <div class="ponsion_saler">
+            <div class="img_saler">
+                <img src="../img/Image_SP/Brown Black Friday Bag Sale Instagram Post.png" alt="img_bag_sale"/>
+            </div>
+                <div class="content_saler">
+                    <b> BLACK FRIDAY</b></br>
+                    <b>DEAL OF THE WEEK</b>
+                    <h5>Multi - pocket Check Bag</h5>
+                    <div class="example">
+                        <p>⏰ A lightweight and performant flip styled countdown clock</p>
+                        <div id="flipdown" class="flipdown"></div>
+                        <button>Shop Now</button>
+                    </div>
+                </div>
         </div>
     </div>
 <hr style="border-style: solid;border-width: 1px;background-color: black; float: left;width: 100%;height: 3px;margin-top: 40px;">
