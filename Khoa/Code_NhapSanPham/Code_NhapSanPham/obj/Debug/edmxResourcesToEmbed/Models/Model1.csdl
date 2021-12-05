@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThuongMaiDienTuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Account_id" />
+    </Key>
+    <Property Name="Account_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account_role_id" Type="Int32" Nullable="false" />
+    <Property Name="Infor_id" Type="Int32" Nullable="false" />
+    <Property Name="LichSuMuaHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Account_role">
+    <Key>
+      <PropertyRef Name="Account_role_id" />
+    </Key>
+    <Property Name="Account_role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account_role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Image_id" />
+    </Key>
+    <Property Name="Image_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SanPham_id" Type="Int32" Nullable="false" />
+    <Property Name="Image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="key" Type="Boolean" />
+    <NavigationProperty Name="SanPham" Relationship="Self.FK_Image_SanPham" FromRole="Image" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="SanPham_id" />
+    </Key>
+    <Property Name="SanPham_id" Type="Int32" Nullable="false" />
+    <Property Name="SanPham_name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SanPham_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SanPham_price" Type="Double" />
+    <Property Name="SanPham_pirceSale" Type="Double" />
+    <Property Name="Type_SanPham_id" Type="Int32" Nullable="false" />
+    <Property Name="Sale_key" Type="Boolean" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Images" Relationship="Self.FK_Image_SanPham" FromRole="SanPham" ToRole="Image" />
+    <NavigationProperty Name="Type_SanPham" Relationship="Self.FK_SanPham_Type_SanPham" FromRole="SanPham" ToRole="Type_SanPham" />
+  </EntityType>
+  <EntityType Name="Type_SanPham">
+    <Key>
+      <PropertyRef Name="Type_SanPham_id" />
+    </Key>
+    <Property Name="Type_SanPham_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.FK_SanPham_Type_SanPham" FromRole="Type_SanPham" ToRole="SanPham" />
+  </EntityType>
+  <Association Name="FK_Image_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="SanPham_id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="SanPham_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_Type_SanPham">
+    <End Role="Type_SanPham" Type="Self.Type_SanPham" Multiplicity="1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_SanPham">
+        <PropertyRef Name="Type_SanPham_id" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="Type_SanPham_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThuongMaiDienTuEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Account_role" EntityType="Self.Account_role" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="Type_SanPham" EntityType="Self.Type_SanPham" />
+    <AssociationSet Name="FK_Image_SanPham" Association="Self.FK_Image_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_Type_SanPham" Association="Self.FK_SanPham_Type_SanPham">
+      <End Role="Type_SanPham" EntitySet="Type_SanPham" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

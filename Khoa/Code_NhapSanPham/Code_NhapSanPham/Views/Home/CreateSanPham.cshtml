@@ -1,0 +1,119 @@
+﻿@model Code_NhapSanPham.Models.SanPham
+
+@{
+    ViewBag.Title = "CreateSanPham";
+}
+<body>
+    <div class="Header_Dau_Sach">
+        <div class="row align-items-center ">
+            <div class="col-md-4 ">
+
+            </div>
+            <div class="col-md-4">
+                <h3 class="Them-Dau-sach-header-content"> Thêm Sản phẩm Mới</h3>
+            </div>
+            <div class="col-md-4">
+                <a class="DauSach-btn-add" href="@Url.Action("Index","Home")"> <i class="fas fa-chevron-left"></i> Quay lại</a>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm("CreateSanPham", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.AntiForgeryToken();
+        @Html.HiddenFor(model => model.img)
+
+        <div class="login_register">
+            <div class="changePass">
+
+                <div class="ThemDauSach-field">
+                    <i class="fas fa-barcode"></i>
+                    <input type="text" class="ThemDauSach-input" placeholder="Nhập mã sách" required name="maSanPham" pattern="[0-9]{1,4}" title="Vui lòng nhập số">
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-book"></i>
+                    <input type="text" class="ThemDauSach-input " placeholder="Nhập tên sản phẩm" required name="nameSanPham">
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-user-edit"></i>
+                    @*@Html.EditorFor(model => model.TacGia, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập tác giả" } })*@
+                    <input type="text" class="ThemDauSach-input " placeholder="Nhập mô tả cho sản phẩm" required name="desSanPham">
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-caret-down"></i>
+                    @*@Html.EditorFor(model => model.TheLoai, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập thể loại" } })*@
+                    <input type="text" class="ThemDauSach-input " placeholder="Nhập giá" required name="priceSanPham">
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-hand-point-right"></i>
+                    @*@Html.EditorFor(model => model.NamXuatBan, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập năm xuất bản", @requiredpattern = "[0-9]{1,4}", @title = "Vui lòng nhập số!" } })*@
+                    <input type="text" class="ThemDauSach-input " placeholder="Nhập giá khuyến mãi" required pattern="[0-9]{1,4}" title="Vui lòng nhập số!" name="PriceSale">
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-industry"></i>
+                    <input type="text" class="ThemDauSach-input " placeholder="Nhập Type_SanPham_id" required name="typeSanPhamid">
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-industry"></i>
+                    <input type="text" class="ThemDauSach-input " placeholder="Nhập Sale_key" required name="salekey">
+                </div>
+                <div class=" ThemDauSach-field ThemDauSach-img">
+                    <input type="file" value="img" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
+                    <img src="" id="previewImg" alt="Hinh anh sản phảm">
+                </div>
+                @*
+        <div class=" ThemDauSach-field ThemDauSach-img">
+            <input type="file" value="image" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
+            <img src="@Url.Content(Model.img)" id="previewImg" alt="Hinh anh sach">
+        </div>*@
+                @*  <b>Tên Sản phẩm</b>
+        <div class="ThemDauSach-field">
+            <i class="fas fa-user-edit"></i>
+            @Html.EditorFor(model => model.SanPham_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SanPham_name, "", new { @class = "text-danger" })
+        </div>
+        <b>description</b>
+        <div class="ThemDauSach-field">
+
+            @Html.EditorFor(model => model.SanPham_description, new { htmlAttributes = new { @name = "cars" } })
+            @Html.ValidationMessageFor(model => model.SanPham_description, "", new { @name = "cars" })
+        </div>
+        <b>Giá Tiền</b>
+        <div class="ThemDauSach-field">
+            <i class="fas fa-money"></i>
+            @Html.EditorFor(model => model.SanPham_price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SanPham_price, "", new { @class = "text-danger" })
+        </div>
+        <b>pirceSale</b>
+        <div class="ThemDauSach-field">
+            <i class="fas fa-sticky-note"></i>
+            @Html.EditorFor(model => model.SanPham_pirceSale, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SanPham_pirceSale, "", new { @class = "text-danger" })
+        </div>
+
+        <b>Type_SanPham_id</b>
+        <div class="ThemDauSach-field">
+            <i class="fas fa-money"></i>
+            @Html.EditorFor(model => model.Type_SanPham_id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Type_SanPham_id, "", new { @class = "text-danger" })
+        </div>
+        <b>Sale Key</b>
+        <div class="ThemDauSach-field">
+            <i class="fas fa-money"></i>
+            @Html.EditorFor(model => model.Sale_key, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Sale_key, "", new { @class = "text-danger" })
+        </div>
+        <b>Hình ảnh</b>
+        <div class=" ThemDauSach-field ThemDauSach-img">
+            <input type="file" value="img" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
+            <img src="" id="previewImg" alt="Hinh anh sản phảm">
+        </div>*@
+
+                <button type="submit" class="changePass-submit">Thêm sản phẩm</button>
+
+            </div>
+        </div>}
+
+</body>
+</html>
+

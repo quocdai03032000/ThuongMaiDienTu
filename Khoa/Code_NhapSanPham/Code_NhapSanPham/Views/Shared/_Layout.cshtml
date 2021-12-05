@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NhapSanPham</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/IMG.js"></script>
+    <link href="~/Assets/NhapSanPham.css" rel="stylesheet" />
+</head>
+@*<body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>
+*@
+<body>
+    <div class="Mainadmin" style="width:100%;">
+        <nav class="">
+            <div class="row nav_mainadmin" id="navbarNavDropdown">
+                <div class="col-xs-2 logoadmin">
+                    <img src="~/Content/image/Logo_store.PNG" style="height: 50px;width: 90px;" alt="logohithere">
+                </div>
+                <div class="col-xs-10 menu_mainadmin">
+                    <ul class="menu_ul">
+                        <!--<li class="dropdown">
+                            <a class="dropbtnt">Sản phẩm</a>
+                            <div class="dropdown-contentt1">
+                                <a href="@Url.Action("DauSanPham","Home")">DS Đầu Sản Phẩm</a>
+                                <a href="@Url.Action("ChiTietSanPham","Home")">Chi Tiết Sản Phẩm</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtnt">LAYOUT</a>
+                            <div class="dropdown-contentt1">
+                                <a href="@Url.Action("Animation","Home")">IMAGE_ANIMATION</a>
+                                <a href="#">TYPICAL_PRODUCT</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtnt">Đơn hàng</a>
+                            <div class="dropdown-contentt1">
+                                <a href="@Url.Action("DS_DonDatHang","Home")">Đơn đặt hàng</a>
+                                <a href="@Url.Action("DS_DonDaLen","Home")">Đơn đã lên</a>
+                                <a href="@Url.Action("DS_DangGiao","Home")">Đang giao hàng</a>
+
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtnt">Báo Cáo cửa hàng</a>
+                            <div class="dropdown-contentt">
+                                <a href="@Url.Action("BaoCaoDonHangDaBan","Home")">Báo cáo Đơn Hàng Thành Công</a>
+
+                                <a href="">Báo cáo sản phẩm đã bán</a>-->
+                                @*  @using (Html.BeginForm("BaoCaoDanhThuCuaHang", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {*@
+                                <!--<a href="@Url.Action("DoanhThuThang","Home")">Báo cáo doanh thu tháng</a>-->
+                                @*  }*@
+                            <!--</div>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtnt" href="@Url.Action("DS_TaiKhoan","Home")">Quản lí khách hàng</a>
+                            <div class="dropdown-contentt">
+
+                                <a href="@Url.Action("DS_TaiKhoanActive","Home")">Tài Khoản Active</a>
+                                <a href="@Url.Action("DS_TaiKhoanBlock","Home")">Tài KHoản Block</a>
+                                <a href="#">Tài KHoản Đang Đặt</a>
+                            </div>
+                        </li>-->
+
+                
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

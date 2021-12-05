@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThuongMaiDienTuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Account_id" />
+    </Key>
+    <Property Name="Account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account_user" Type="varchar" MaxLength="50" />
+    <Property Name="Account_password" Type="varchar" MaxLength="50" />
+    <Property Name="Account_role_id" Type="int" Nullable="false" />
+    <Property Name="Infor_id" Type="int" Nullable="false" />
+    <Property Name="LichSuMuaHang" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Account_role">
+    <Key>
+      <PropertyRef Name="Account_role_id" />
+    </Key>
+    <Property Name="Account_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account_role_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Image_id" />
+    </Key>
+    <Property Name="Image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SanPham_id" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="key" Type="bit" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="SanPham_id" />
+    </Key>
+    <Property Name="SanPham_id" Type="int" Nullable="false" />
+    <Property Name="SanPham_name" Type="nvarchar" MaxLength="80" />
+    <Property Name="SanPham_description" Type="nvarchar(max)" />
+    <Property Name="SanPham_price" Type="float" />
+    <Property Name="SanPham_pirceSale" Type="float" />
+    <Property Name="Type_SanPham_id" Type="int" Nullable="false" />
+    <Property Name="Sale_key" Type="bit" />
+    <Property Name="img" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Type_SanPham">
+    <Key>
+      <PropertyRef Name="Type_SanPham_id" />
+    </Key>
+    <Property Name="Type_SanPham_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Image_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="SanPham_id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="SanPham_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_Type_SanPham">
+    <End Role="Type_SanPham" Type="Self.Type_SanPham" Multiplicity="1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_SanPham">
+        <PropertyRef Name="Type_SanPham_id" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="Type_SanPham_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThuongMaiDienTuModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Account_role" EntityType="Self.Account_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Type_SanPham" EntityType="Self.Type_SanPham" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Image_SanPham" Association="Self.FK_Image_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_Type_SanPham" Association="Self.FK_SanPham_Type_SanPham">
+      <End Role="Type_SanPham" EntitySet="Type_SanPham" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

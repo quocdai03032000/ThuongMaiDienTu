@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Code_NhapSanPham.Models.SanPham>
+
+<body>
+    @using (Html.BeginForm("Index", "Home"))
+    {
+
+        <div class="Header_Dau_Sach">
+            <div class="row align-items-center ">
+                <div class="col-md-4 ">
+                    <h3 class="Dau-sach-header-content"> Danh sách sản phẩm</h3>
+                </div>
+                <div class="col-md-4 DauSach-btn-search">
+                    @******Thanh tìm kiếm*******@
+                    @*  @Html.TextBox("search")<input type="submit" value="search" />*@
+                    <input type="search" name="search" placeholder="Search....">
+                </div>
+                <div class="col-md-4">
+                    <a class="DauSach-btn-add" href="@Url.Action("CreateSanPham","Home")">Thêm sản phẩm</a>
+                </div>
+            </div>
+        </div>
+      @*  <div style="text-align:center;">
+            <b>kho: <strong style="color:black;"> @ViewBag.soluong</strong></b>
+            <b>==> lên đơn: <strong style="color:forestgreen">@ViewBag.dalendon</strong></b>
+            <b>==> Đang giao: <strong style="color:red">@ViewBag.danggiao</strong></b>
+        </div>*@
+        <div class="list_DauSach_table">
+            <table class="table_DauSach">
+                <thead>
+                    <tr>
+                        <td class="table_DauSach_MaSach">Mã </td>
+                        <td>Tên sản phẩm</td>
+                        <td>Loại</td>
+                        <td>Loại</td>
+                        <td>Hình ảnh</td>
+                        <td class="table_DauSach_SoLuong">Số lượng</td>
+                        <td class="table_DauSach_NamXuatBan">Giá</td>
+                        <td class="table_DauSach_ChucNang"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@Html.DisplayFor(a => item.SanPham_id)</td>
+                        <td>@Html.DisplayFor(a => item.SanPham_name)</td>
+                        <td>@Html.DisplayFor(a => item.SanPham_description)</td>
+                        <td>@Html.DisplayFor(a => item.SanPham_price)</td>
+                        <td>@Html.DisplayFor(a => item.SanPham_pirceSale)</td>
+                        <td>@Html.DisplayFor(a => item.Type_SanPham_id)</td>
+                        <td>@Html.DisplayFor(a => item.Type_SanPham)</td>
+                        <td><img src="@Url.Content(item.img)" alt="ismg_sanPham" style="width:35px;height:35px" /></td>
+                        <td class="table_DauSach_btn">
+                            <a href="@Url.Action("EditUploadImage","Home",new {id=item.SanPham_id })"><i class="fas fa-wrench"><!-- Sửa --></i></a>
+                            <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm   @Html.DisplayFor(a=>item.SanPham_name) với mã @Html.DisplayFor(a=>item.SanPham_id)')" href="@Url.Action("DeleteSanPham","Home",new { id=item.SanPham_id})"><i class="fas fa-trash-alt"><!-- Xoá --></i></a>
+                         
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>}
+</body>
+</html>
+
+
+
+
+@*<a class="DauSach-btn-add" href="@Url.Action("CreateSanPham","Home")">Thêm sản phẩm</a>
+@using (Html.BeginForm("Index", "Home"))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham_description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham_pirceSale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type_SanPham_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sale_key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.img)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(a => item.SanPham_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.SanPham_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.SanPham_description)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.SanPham_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.SanPham_pirceSale)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.Type_SanPham_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => item.Sale_key)
+                </td>
+                <td><img src="@Url.Content(item.img)" alt="ismg_sanPham" style="width:35px;height:35px" /></td>
+
+                <td class="table_DauSach_btn">
+                    <a href="@Url.Action("EditSanPham", "Home", new { id = item.SanPham_id })"><i class="fas fa-images"> Sửa </i></a>
+                    <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm   @Html.DisplayFor(a => item.SanPham_name) với mã @Html.DisplayFor(a => item.SanPham_id)')" href="@Url.Action("DeleteSanPham", "Home", new { id = item.SanPham_id })"><i class="fas fa-trash-alt"> Xoá </i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+*@

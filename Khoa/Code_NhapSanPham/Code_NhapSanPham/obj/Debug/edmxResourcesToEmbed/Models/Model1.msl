@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThuongMaiDienTuModelStoreContainer" CdmEntityContainer="ThuongMaiDienTuEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Account_id" ColumnName="Account_id" />
+          <ScalarProperty Name="Account_user" ColumnName="Account_user" />
+          <ScalarProperty Name="Account_password" ColumnName="Account_password" />
+          <ScalarProperty Name="Account_role_id" ColumnName="Account_role_id" />
+          <ScalarProperty Name="Infor_id" ColumnName="Infor_id" />
+          <ScalarProperty Name="LichSuMuaHang" ColumnName="LichSuMuaHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Account_role">
+      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Account_role">
+        <MappingFragment StoreEntitySet="Account_role">
+          <ScalarProperty Name="Account_role_id" ColumnName="Account_role_id" />
+          <ScalarProperty Name="Account_role_name" ColumnName="Account_role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="Image_id" ColumnName="Image_id" />
+          <ScalarProperty Name="SanPham_id" ColumnName="SanPham_id" />
+          <ScalarProperty Name="Image1" ColumnName="Image" />
+          <ScalarProperty Name="key" ColumnName="key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="SanPham_id" ColumnName="SanPham_id" />
+          <ScalarProperty Name="SanPham_name" ColumnName="SanPham_name" />
+          <ScalarProperty Name="SanPham_description" ColumnName="SanPham_description" />
+          <ScalarProperty Name="SanPham_price" ColumnName="SanPham_price" />
+          <ScalarProperty Name="SanPham_pirceSale" ColumnName="SanPham_pirceSale" />
+          <ScalarProperty Name="Type_SanPham_id" ColumnName="Type_SanPham_id" />
+          <ScalarProperty Name="Sale_key" ColumnName="Sale_key" />
+          <ScalarProperty Name="img" ColumnName="img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Type_SanPham">
+      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Type_SanPham">
+        <MappingFragment StoreEntitySet="Type_SanPham">
+          <ScalarProperty Name="Type_SanPham_id" ColumnName="Type_SanPham_id" />
+          <ScalarProperty Name="Type_name" ColumnName="Type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
