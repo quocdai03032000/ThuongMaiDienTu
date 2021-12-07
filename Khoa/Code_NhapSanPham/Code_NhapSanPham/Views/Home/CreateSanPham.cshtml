@@ -25,37 +25,42 @@
 
         <div class="login_register">
             <div class="changePass">
-
+                <h3 style="color:red">@ViewBag.ErrorCreate</h3>
                 <div class="ThemDauSach-field">
                     <i class="fas fa-barcode"></i>
-                    <input type="text" class="ThemDauSach-input" placeholder="Nhập mã sách" required name="maSanPham" pattern="[0-9]{1,4}" title="Vui lòng nhập số">
+                    <input type="text" class="ThemDauSach-input" placeholder="Nhập mã sản phẩm" required name="maSanPham" pattern="[0-9]{1,4}" title="Vui lòng nhập số">
                 </div>
                 <div class="ThemDauSach-field ">
-                    <i class="fas fa-book"></i>
+                    <i class="fab fa-mdb"></i>
                     <input type="text" class="ThemDauSach-input " placeholder="Nhập tên sản phẩm" required name="nameSanPham">
                 </div>
                 <div class="ThemDauSach-field ">
-                    <i class="fas fa-user-edit"></i>
+                    <i class="far fa-sticky-note"></i>
                     @*@Html.EditorFor(model => model.TacGia, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập tác giả" } })*@
                     <input type="text" class="ThemDauSach-input " placeholder="Nhập mô tả cho sản phẩm" required name="desSanPham">
                 </div>
                 <div class="ThemDauSach-field ">
-                    <i class="fas fa-caret-down"></i>
+                    <i class="fas fa-money-bill-alt"></i>
                     @*@Html.EditorFor(model => model.TheLoai, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập thể loại" } })*@
                     <input type="text" class="ThemDauSach-input " placeholder="Nhập giá" required name="priceSanPham">
                 </div>
                 <div class="ThemDauSach-field ">
-                    <i class="fas fa-hand-point-right"></i>
+                    <i class="fas fa-hand-holding-usd"></i>
                     @*@Html.EditorFor(model => model.NamXuatBan, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập năm xuất bản", @requiredpattern = "[0-9]{1,4}", @title = "Vui lòng nhập số!" } })*@
                     <input type="text" class="ThemDauSach-input " placeholder="Nhập giá khuyến mãi" required pattern="[0-9]{1,4}" title="Vui lòng nhập số!" name="PriceSale">
                 </div>
                 <div class="ThemDauSach-field ">
-                    <i class="fas fa-industry"></i>
+                    <i class="fas fa-barcode"></i>
                     <input type="text" class="ThemDauSach-input " placeholder="Nhập Type_SanPham_id" required name="typeSanPhamid">
                 </div>
                 <div class="ThemDauSach-field ">
-                    <i class="fas fa-industry"></i>
-                    <input type="text" class="ThemDauSach-input " placeholder="Nhập Sale_key" required name="salekey">
+                    <i class="fas fa-key"></i>
+                    @*<input type="text" class="ThemDauSach-input " placeholder="Nhập Sale_key" required name="salekey">*@
+                    <select style="width:50%; margin-left:30px;" name="salekey" id="salekey">
+                        <option value="Not">Not</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                    </select>
                 </div>
                 <div class=" ThemDauSach-field ThemDauSach-img">
                     <input type="file" value="img" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />

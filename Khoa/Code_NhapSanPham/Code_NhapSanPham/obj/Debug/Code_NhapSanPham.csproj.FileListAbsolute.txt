@@ -80,3 +80,4 @@ C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\C
 C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.csproj.CopyComplete
 C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.dll
 C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.pdb
+C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.csproj.AssemblyReference.cache

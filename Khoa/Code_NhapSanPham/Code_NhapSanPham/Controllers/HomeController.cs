@@ -13,9 +13,16 @@ namespace Code_NhapSanPham.Controllers
     public class HomeController : Controller
     {
         ThuongMaiDienTuEntities dataB = new ThuongMaiDienTuEntities();
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            return View(dataB.SanPhams);
+            if(search != null)
+            {
+                return View(dataB.SanPhams.Where(a => a.SanPham_name.StartsWith(search) || a.SanPham_description.StartsWith(search)).ToList());
+            }
+            else
+            {
+                return View(dataB.SanPhams);
+            }
         }
 
         public ActionResult CreateSanPham()
@@ -71,13 +78,13 @@ namespace Code_NhapSanPham.Controllers
             return View(dataB.SanPhams.Where(a => a.SanPham_id == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult EditSanPham(int id,SanPham sanpham)
+        public ActionResult EditSanPham(int id, SanPham sanpham, string imageUploader)
         {
             sanpham = dataB.SanPhams.Where(a=>a.SanPham_id == id).SingleOrDefault();
-
+            sanpham.img = "~/Content/Image_SanPham/" + imageUploader;
             dataB.Entry(sanpham).State = System.Data.Entity.EntityState.Modified;
             dataB.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("EditSanPham", "Home");
         }
         [HttpGet]
         public ActionResult DeleteSanPham(int id)
