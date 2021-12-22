@@ -81,3 +81,37 @@ C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\C
 C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.dll
 C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.pdb
 C:\Users\laanh\OneDrive\Máy tính\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.csproj.AssemblyReference.cache
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Code_NhapSanPham.dll.config
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Code_NhapSanPham.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Code_NhapSanPham.pdb
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Antlr3.Runtime.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\EntityFramework.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\EntityFramework.SqlServer.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Newtonsoft.Json.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Helpers.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Mvc.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Optimization.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Razor.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.WebPages.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.WebPages.Razor.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\WebGrease.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\EntityFramework.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\EntityFramework.SqlServer.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Helpers.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Mvc.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Optimization.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.Razor.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.WebPages.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\System.Web.WebPages.Razor.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Newtonsoft.Json.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Antlr3.Runtime.pdb
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.csprojAssemblyReference.cache
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.csproj.CoreCompileInputs.cache
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.csproj.CopyComplete
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.dll
+C:\Users\Tran Quoc Dai\Desktop\Đồ án\Thương Mại Điện Tử\ThuongMaiDienTu\Khoa\Code_NhapSanPham\Code_NhapSanPham\obj\Debug\Code_NhapSanPham.pdb
