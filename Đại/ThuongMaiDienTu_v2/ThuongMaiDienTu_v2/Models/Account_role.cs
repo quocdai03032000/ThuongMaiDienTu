@@ -14,7 +14,16 @@ namespace ThuongMaiDienTu_v2.Models
     
     public partial class Account_role
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Account_role()
+        {
+            this.Accounts = new HashSet<Account>();
+        }
+    
         public int Account_role_id { get; set; }
         public string Account_role_name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

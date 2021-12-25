@@ -14,9 +14,16 @@ namespace ThuongMaiDienTu_v2.Models
     
     public partial class Type_SanPham
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Type_SanPham()
+        {
+            this.SanPhams = new HashSet<SanPham>();
+        }
+    
         public int Type_SanPham_id { get; set; }
         public string Type_name { get; set; }
     
-        public virtual SanPham SanPham { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

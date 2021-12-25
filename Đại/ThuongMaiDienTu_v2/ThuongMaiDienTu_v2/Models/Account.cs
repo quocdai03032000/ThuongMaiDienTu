@@ -14,11 +14,13 @@ namespace ThuongMaiDienTu_v2.Models
     
     public partial class Account
     {
-        public int Account_id { get; set; }
+        public int id { get; set; }
         public string Account_user { get; set; }
         public string Account_password { get; set; }
-        public int Account_role_id { get; set; }
-        public int Infor_id { get; set; }
+        public Nullable<int> Account_role_id { get; set; }
+        public Nullable<int> Infor_id { get; set; }
         public string LichSuMuaHang { get; set; }
+    
+        public virtual Account_role Account_role { get; set; }
     }
 }

@@ -24,7 +24,25 @@ namespace ThuongMaiDienTu_v2.Areas.Admin.Controllers
         //Quản lý sản phẩm 
         public ActionResult ProductManagememt()
         {
-            return View();
+            SanPham sp = new SanPham();
+            return View(sp);
+        }
+        //Thêm sản phẩm
+        [HttpPost]
+        public ActionResult AddProduct(SanPham sp, string name, string desc, int price)
+        {
+            var check = database.SanPhams.Where(a => a.SanPham_Name == name).SingleOrDefault();
+            if (check == null)
+            {
+                sp.SanPham_Name = name;
+                sp.SanPham_description = desc;
+                sp.SanPham_Price = price;
+                database.SanPhams.Add(sp);
+                database.SaveChanges();
+
+
+            }
+            return RedirectToAction("ProductManagememt", "Main");
         }
         //Sản phẩm chi tiết
         public ActionResult ProductDetail()

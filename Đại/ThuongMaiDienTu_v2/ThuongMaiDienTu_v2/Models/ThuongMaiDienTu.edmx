@@ -7,13 +7,13 @@
       <Schema Namespace="ThuongMaiDienTuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
-            <PropertyRef Name="Account_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Account_user" Type="varchar" MaxLength="50" />
-          <Property Name="Account_password" Type="varchar" MaxLength="50" />
-          <Property Name="Account_role_id" Type="int" Nullable="false" />
-          <Property Name="Infor_id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account_user" Type="nchar" MaxLength="30" />
+          <Property Name="Account_password" Type="nchar" MaxLength="30" />
+          <Property Name="Account_role_id" Type="int" />
+          <Property Name="Infor_id" Type="int" />
           <Property Name="LichSuMuaHang" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Account_role">
@@ -126,15 +126,27 @@
           <Property Name="Type_SanPham_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type_name" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Account_Account_role">
+          <End Role="Account_role" Type="Self.Account_role" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_role">
+              <PropertyRef Name="Account_role_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Account_role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SanPham_Type_SanPham">
-          <End Role="Type_SanPham" Type="Self.Type_SanPham" Multiplicity="1" />
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="Type_SanPham" Type="Self.Type_SanPham" Multiplicity="0..1" />
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Type_SanPham">
               <PropertyRef Name="Type_SanPham_id" />
             </Principal>
             <Dependent Role="SanPham">
-              <PropertyRef Name="SanPham_Id" />
+              <PropertyRef Name="Type_SanPham_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -179,6 +191,10 @@
           <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TinhTrangDonHang" EntityType="Self.TinhTrangDonHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type_SanPham" EntityType="Self.Type_SanPham" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_Account_role" Association="Self.FK_Account_Account_role">
+            <End Role="Account_role" EntitySet="Account_role" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_SanPham_Type_SanPham" Association="Self.FK_SanPham_Type_SanPham">
             <End Role="Type_SanPham" EntitySet="Type_SanPham" />
             <End Role="SanPham" EntitySet="SanPham" />
@@ -199,14 +215,15 @@
       <Schema Namespace="ThuongMaiDienTuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Account">
           <Key>
-            <PropertyRef Name="Account_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Account_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Account_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Account_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Account_role_id" Type="Int32" Nullable="false" />
-          <Property Name="Infor_id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account_user" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Account_password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Account_role_id" Type="Int32" />
+          <Property Name="Infor_id" Type="Int32" />
           <Property Name="LichSuMuaHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account_role" Relationship="Self.FK_Account_Account_role" FromRole="Account" ToRole="Account_role" />
         </EntityType>
         <EntityType Name="Account_role">
           <Key>
@@ -214,6 +231,7 @@
           </Key>
           <Property Name="Account_role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Account_role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Account_role" FromRole="Account_role" ToRole="Account" />
         </EntityType>
         <EntityType Name="BaoCao">
           <Key>
@@ -322,17 +340,29 @@
           </Key>
           <Property Name="Type_SanPham_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SanPham" Relationship="Self.FK_SanPham_Type_SanPham" FromRole="Type_SanPham" ToRole="SanPham" />
+          <NavigationProperty Name="SanPhams" Relationship="Self.FK_SanPham_Type_SanPham" FromRole="Type_SanPham" ToRole="SanPham" />
         </EntityType>
+        <Association Name="FK_Account_Account_role">
+          <End Role="Account_role" Type="Self.Account_role" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account_role">
+              <PropertyRef Name="Account_role_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Account_role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SanPham_Type_SanPham">
-          <End Role="Type_SanPham" Type="Self.Type_SanPham" Multiplicity="1" />
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="Type_SanPham" Type="Self.Type_SanPham" Multiplicity="0..1" />
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Type_SanPham">
               <PropertyRef Name="Type_SanPham_id" />
             </Principal>
             <Dependent Role="SanPham">
-              <PropertyRef Name="SanPham_Id" />
+              <PropertyRef Name="Type_SanPham_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -377,6 +407,10 @@
           <EntitySet Name="ThanhToans" EntityType="Self.ThanhToan" />
           <EntitySet Name="TinhTrangDonHangs" EntityType="Self.TinhTrangDonHang" />
           <EntitySet Name="Type_SanPham" EntityType="Self.Type_SanPham" />
+          <AssociationSet Name="FK_Account_Account_role" Association="Self.FK_Account_Account_role">
+            <End Role="Account_role" EntitySet="Account_role" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
           <AssociationSet Name="FK_SanPham_Type_SanPham" Association="Self.FK_SanPham_Type_SanPham">
             <End Role="Type_SanPham" EntitySet="Type_SanPham" />
             <End Role="SanPham" EntitySet="SanPhams" />
@@ -399,7 +433,7 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Account">
               <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="Account_id" ColumnName="Account_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Account_user" ColumnName="Account_user" />
                 <ScalarProperty Name="Account_password" ColumnName="Account_password" />
                 <ScalarProperty Name="Account_role_id" ColumnName="Account_role_id" />

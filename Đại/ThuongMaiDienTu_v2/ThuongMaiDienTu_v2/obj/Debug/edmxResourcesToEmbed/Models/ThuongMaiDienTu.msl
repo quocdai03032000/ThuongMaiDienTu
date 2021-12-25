@@ -4,7 +4,7 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Account">
         <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="Account_id" ColumnName="Account_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Account_user" ColumnName="Account_user" />
           <ScalarProperty Name="Account_password" ColumnName="Account_password" />
           <ScalarProperty Name="Account_role_id" ColumnName="Account_role_id" />

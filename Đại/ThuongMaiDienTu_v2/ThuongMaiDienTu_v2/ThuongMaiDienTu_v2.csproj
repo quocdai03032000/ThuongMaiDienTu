@@ -226,13 +226,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ThuongMaiDienTu.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ThuongMaiDienTu.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ThuongMaiDienTu.edmx.diagram">
-      <DependentUpon>ThuongMaiDienTu.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Main\Index.cshtml" />
@@ -241,6 +234,13 @@
     <Content Include="Areas\Admin\Views\Main\Order.cshtml" />
     <Content Include="Areas\Admin\Views\Main\OrderDetail.cshtml" />
     <Content Include="Areas\Admin\Views\Main\Login.cshtml" />
+    <EntityDeploy Include="Models\ThuongMaiDienTu.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ThuongMaiDienTu.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ThuongMaiDienTu.edmx.diagram">
+      <DependentUpon>ThuongMaiDienTu.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -4,23 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5a9614c154424c509dea739b5ff6e8c9" Name="Diagram1">
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Account" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Account_role" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.BaoCao" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.BaoCaoGuest" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.DonHang" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.DonHangGuest" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Feedback" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Image" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Infor" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.List_SanPham" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+      <Diagram DiagramId="033debc457224e0eb63cb89dc7933337" Name="Diagram1">
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Account" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Account_role" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.BaoCao" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.BaoCaoGuest" Width="1.5" PointX="7.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.DonHang" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.DonHangGuest" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Feedback" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Image" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.Infor" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.List_SanPham" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ThuongMaiDienTuModel.SanPham" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ThuongMaiDienTuModel.SanPhamDetail" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ThuongMaiDienTuModel.Size" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.ThanhToan" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThuongMaiDienTuModel.TinhTrangDonHang" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.ThanhToan" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThuongMaiDienTuModel.TinhTrangDonHang" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ThuongMaiDienTuModel.Type_SanPham" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="ThuongMaiDienTuModel.FK_Account_Account_role" ManuallyRouted="false" />
         <AssociationConnector Association="ThuongMaiDienTuModel.FK_SanPham_Type_SanPham" ManuallyRouted="false" />
         <AssociationConnector Association="ThuongMaiDienTuModel.FK_SanPhamDetail_SanPham" ManuallyRouted="false" />
         <AssociationConnector Association="ThuongMaiDienTuModel.FK_SanPhamDetail_Size" ManuallyRouted="false" />
