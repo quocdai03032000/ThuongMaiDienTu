@@ -11,7 +11,9 @@ namespace ThuongMaiDienTu_v2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
+
     public partial class SanPham
     {
         public int SanPham_Id { get; set; }
@@ -26,7 +28,17 @@ namespace ThuongMaiDienTu_v2.Models
         public string Img3 { get; set; }
         public string Img4 { get; set; }
         public Nullable<int> Type_SanPham_id { get; set; }
-    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [NotMapped]
+        public HttpPostedFileBase imageUploader { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase imageUploader2 { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase imageUploader3 { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase imageUploader4 { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase imageUploader5 { get; set; }
         public virtual Type_SanPham Type_SanPham { get; set; }
         public virtual SanPhamDetail SanPhamDetail { get; set; }
     }

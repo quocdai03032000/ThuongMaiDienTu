@@ -14,7 +14,11 @@
 
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
-
+    <script src="~/Scripts/IMG_scripts.js"></script>
+    <script src="~/Scripts/IMG2_scripts.js"></script>
+    <script src="~/Scripts/IMG3_scripts.js"></script>
+    <script src="~/Scripts/IMG4_scripts.js"></script>
+    <script src="~/Scripts/IMG5_scripts.js"></script>
     <link rel="stylesheet" href="~/Areas/Admin/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/Areas/Admin/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Areas/Admin/vendors/themify-icons/css/themify-icons.css">
@@ -133,7 +137,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                            <a  onclick="return confirm('Bạn chắc chắn muốn Đăng xuất tài khoản @Session["User"]')" class="nav-link" href="@Url.Action("Logout", "Main")"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
 
