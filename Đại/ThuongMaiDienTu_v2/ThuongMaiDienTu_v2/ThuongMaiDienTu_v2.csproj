@@ -240,6 +240,7 @@
     <Content Include="Areas\Admin\Views\Main\ProductDetail.cshtml" />
     <Content Include="Areas\Admin\Views\Main\Order.cshtml" />
     <Content Include="Areas\Admin\Views\Main\OrderDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Main\Login.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

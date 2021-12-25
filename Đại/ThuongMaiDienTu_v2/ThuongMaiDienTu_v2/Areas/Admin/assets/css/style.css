@@ -1,4 +1,4 @@
-/* This css file is to over write bootstrap css
+﻿/* This css file is to over write bootstrap css
 --------------------------------------------------------- /
 * Theme Name: Sufee-Admin Admin Template
 * Theme URI: http://demos.jeweltheme.com/Sufee-Admin/
@@ -7088,3 +7088,80 @@ a {
 .order_btn a:hover {
     opacity: 85%;
 }
+.body_login {
+    background-image: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+}
+
+.login_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 30px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login_form_img {
+    width: 70%;
+}
+
+.form {
+    width: 80%;
+}
+
+    .form > h1 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+        padding-bottom: 30px;
+    }
+
+.form_group {
+    display: flex;
+    margin-bottom: 16px;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: #EEEEEE;
+    padding: 10px 5px;
+    border-radius: 50px;
+}
+
+    .form_group i {
+        font-size: 1.3rem;
+        color: rgba(0, 0, 0, 0.884);
+        margin-left: 20px;
+    }
+
+.form_input {
+    border: none;
+    background-color: #EEEEEE;
+    margin-left: 15px;
+    padding: 5px 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form_submit {
+    width: 100%;
+    background-color: #73d393;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    color: white;
+    padding: 15px 0px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: 50px;
+}
+
+    .form_submit:hover {
+        opacity: 90%;
+    }
