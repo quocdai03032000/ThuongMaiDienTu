@@ -16,6 +16,10 @@ namespace ThuongMaiDienTu_v2.Models
 
     public partial class SanPham
     {
+        public SanPham()
+        {
+            Main_img = "~/Contents/images/add.png";
+        }
         public int SanPham_Id { get; set; }
         public string SanPham_Name { get; set; }
         public string SanPham_description { get; set; }

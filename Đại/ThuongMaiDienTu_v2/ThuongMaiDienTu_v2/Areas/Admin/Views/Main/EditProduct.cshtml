@@ -1,121 +1,159 @@
-﻿@*@model ThuongMaiDienTu_v2.Models.SanPham*@
-@model IEnumerable<ThuongMaiDienTu_v2.Models.SanPham>
+﻿@model ThuongMaiDienTu_v2.Models.SanPham
+@*@model IEnumerable<ThuongMaiDienTu_v2.Models.SanPham>*@
 
 @{
     ViewBag.Title = "EditProduct";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>EditProduct</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>SanPham</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-@*        @Html.HiddenFor(model => model.SanPham_Id)*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SanPham_Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SanPham_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SanPham_Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SanPham_description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SanPham_description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SanPham_description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SanPham_Price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SanPham_Price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SanPham_Price, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SanPham_priceSale, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SanPham_priceSale, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SanPham_priceSale, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sale_key, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Sale_key)
-                    @Html.ValidationMessageFor(model => model.Sale_key, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Main_img, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Main_img, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Main_img, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Img1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Img1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Img1, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Img2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Img2, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Img2, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Img3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Img3, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Img3, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Img4, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Img4, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Img4, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Type_SanPham_id, "Type_SanPham_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Type_SanPham_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Type_SanPham_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Sản phẩm chi tiết</h1>
             </div>
         </div>
     </div>
+</div>
+@using (Html.BeginForm("EditProduct", "Main", FormMethod.Post, new { id = Model.SanPham_Id }))
+{
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-9 card ">
+                    <div class="card-header">
+                        <strong>Sản phẩm</strong>
+                    </div>
+                    <h1 style="color:red">@ViewBag.EditThanhCong</h1>
+                    <div class="card-body card-block">
+                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="nameSanPhan" placeholder="Text" value=" @Html.DisplayFor(model => model.SanPham_Name)" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
+                                <div class="col-12 col-md-9"><textarea name="desSanPham" value="@Html.DisplayFor(model => model.SanPham_description)" id="textarea-input" rows="9" placeholder="Content...  " class="form-control"> @Html.DisplayFor(model => model.SanPham_description) </textarea></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="select" class=" form-control-label">Loại sản phẩm</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select value="@Html.DisplayFor(model => model.Type_SanPham_id)" name="typeID" id="select" class="form-control">
+                                        <option disabled style="background-color:black;color:white" value="@Html.DisplayFor(model => model.Type_SanPham_id)">
+                                            @if (Model.Type_SanPham_id == 1)
+                                            {
+                                                <p>Tee</p>
+                                            }
+                                            @if (Model.Type_SanPham_id == 2)
+                                            {
+                                                <p>Pant</p>
+                                            }
+                                            @if (Model.Type_SanPham_id == 3)
+                                            {
+                                                 <p>Jackket</p>
+                                            }
+                                            @if(Model.Type_SanPham_id == 4)
+                                            {
+                                                 <p>Accessories</p>
+                                            }
+                                        </option>
+                                        <option value="1">Tee</option>
+                                        <option value="2">Pant</option>
+                                        <option value="3">Jackket</option>
+                                        <option value="3">Accessories</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá sản phẩm</label></div>
+                                <div class="col-12 col-md-9"><input type="number" value=" @Html.DisplayFor(model => model.SanPham_Price)" id="text-input" name="priceSanPham" placeholder="VND" class="form-control"></div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh Chính</label></div>
+                                <div class="col-12 col-md-6">
+                                    <input type="file" value=" @Html.DisplayFor(model => model.Main_img)" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
+                                </div>
+                                <div class="col col-md-3"><img id="previewImg" class="ImgItemDemo" src="@Url.Content(Model.Main_img)" alt="Imgae product"></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 1</label></div>
+                                <div class="col-12 col-md-6">
+                                    <input type="file" value=" @Html.DisplayFor(model => model.Img1)" name="imageUploader2" onchange="ShowImg2(this, document.getElementById('previewImg2'))" />
+                                </div>
+                                <div class="col col-md-3"><img id="previewImg2" class="ImgItemDemo" src="@Url.Content(Model.Img1)" alt="Imgae product"></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 2</label></div>
+                                <div class="col-12 col-md-6">
+                                    <input type="file" value=" @Html.DisplayFor(model => model.Img2)" name="imageUploader3" onchange="ShowImg3(this, document.getElementById('previewImg3'))" />
+                                </div>
+                                <div class="col col-md-3"><img id="previewImg3" class="ImgItemDemo" src="@Url.Content(Model.Img2)" alt="Imgae product"></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 3</label></div>
+                                <div class="col-12 col-md-6">
+                                    <input type="file" value=" @Html.DisplayFor(model => model.Img3)" name="imageUploader4" onchange="ShowImg4(this, document.getElementById('previewImg4'))" />
+                                </div>
+                                <div class="col col-md-3"><img id="previewImg4" class="ImgItemDemo" src="@Url.Content(Model.Img3)" alt="Image product"></div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 4</label></div>
+                                <div class="col-12 col-md-6">
+                                    <input type="file" value=" @Html.DisplayFor(model => model.Img4)" name="imageUploader5" onchange="ShowImg5(this, document.getElementById('previewImg5'))" />
+                                </div>
+                                <div class="col col-md-3"><img id="previewImg5" class="ImgItemDemo" src="@Url.Content(Model.Img4)" alt="Imgae product"></div>
+                            </div>
+                            <br>
+                            <button class="btnFixItem">CHỈNH SỮA</button>
+                            @using (Html.BeginForm("DelProduct", "Main", FormMethod.Post, new { id = Model.SanPham_Id }))
+                            {
+                                <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm  @Html.DisplayFor(a => Model.SanPham_Name)  ?') " href="@Url.Action("DelProduct", "Main", new { id = Model.SanPham_Id })"><button class="btnDelItem">XOÁ</button></a>
+                            }
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title ">Bảng size</strong>
+                            <a href="#" class="addItem"> <i class="fas fa-plus"></i> Thêm size</a>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Số lượng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>S</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>M</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <!-- ---------------------- -->
+                                    <tr>
+                                        <td style="font-weight: 700;">Tổng cộng</td>
+                                        <td style="font-weight: 700;">10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- .animated -->
+        <!-- modal add addItem -->
+        <!-- modal add addItem -->
+        <!-- modal add addItem -->
+    </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

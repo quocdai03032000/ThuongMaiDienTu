@@ -241,6 +241,7 @@
       <DependentUpon>ThuongMaiDienTu.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\Main\EditProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Main\EditProduct12.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\IMG2_scripts.js" />
     <Content Include="Scripts\IMG3_scripts.js" />
@@ -277,6 +278,7 @@
     <Folder Include="Areas\Admin\images\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\vendors\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Content\Image_SanPham\" />
   </ItemGroup>
   <ItemGroup>

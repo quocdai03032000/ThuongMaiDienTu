@@ -30,40 +30,40 @@
                             <thead>
                                 <tr>
                                     <th>Tên sản phẩm</th>
-                                    <th>Mô tả</th>
+                                    <th>Loại Sản Phẩm</th>
+                                    <th>Số lượng</th>
                                     <th>Giá</th>
-                                    <th>Type ID</th>
-                                    @*   <th>Giá sale</th>*@
+                                    <th>Giá sale</th>
+                                    <th>Image</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
                                     <tr>
+
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.SanPham_Name)
+                                            <a href="@Url.Action("EditProduct","Main",new {id=item.SanPham_Id })"> @Html.DisplayFor(modelItem => item.SanPham_Name)</a>
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.SanPham_description)
+                                            @Html.DisplayFor(modelItem => item.Type_SanPham)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.SanPham_Price)
-                                        </td>
-                                        @*    <td>
-                                                @Html.DisplayFor(modelItem => item.SanPham_priceSale)
-                                            </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Type_SanPham_id)
                                         </td>
+
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Sale_key)
+                                            @Html.DisplayFor(modelItem => item.SanPham_Price)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SanPham_priceSale)
                                         </td>
                                         <td>
                                             @*      @Html.DisplayFor(modelItem => item.img)*@
                                             <img src="@Url.Content(item.Main_img)" alt="ismg_sanPham" style="width:35px;height:35px" />
                                         </td>
                                         <td class="table_DauSach_btn">
-                                            <a href="@Url.Action("EditProduct","Main",new {id=item.SanPham_Id })"><i class="fas fa-wrench"> </i></a>
+                                            @* <a href="@Url.Action("EditProduct","Main",new {id=item.SanPham_Id })"><i class="fas fa-wrench"> </i></a>*@
                                             <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm   @Html.DisplayFor(a=>item.SanPham_Name) với mã @Html.DisplayFor(a=>item.SanPham_Id)')" href="@Url.Action("DelProduct","Main",new { id=item.SanPham_Id})"><i class="fas fa-trash-alt">  </i></a>
                                         </td>
                                     </tr>
@@ -80,10 +80,11 @@
 <!-- modal add addItem -->
 <!-- modal add addItem -->
 <!-- modal add addItem -->
-@using (Html.BeginForm("AddProduct", "Main", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddProduct", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     @Html.AntiForgeryToken();
+ 
     <div class="addItemModal hide">
         <div class="col-lg-6 card addItemModal_inner">
             <div class="card-header">
@@ -120,9 +121,9 @@
                         <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh chính</label></div>
                         <div class="col-12 col-md-9">
                             <input type="file" value="img" required name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
-                            <img src="" id="previewImg" alt="Hinh anh sản phảm">
+                            <img style="width:300px; height:300px" src="" id="previewImg" alt="Hinh anh sản phảm">
                         </div>
-                   
+
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 1</label></div>

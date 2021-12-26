@@ -107,12 +107,21 @@ namespace ThuongMaiDienTu_v2.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditProduct(int id, SanPham sp, string imageUploader)
+        public ActionResult EditProduct(int id, SanPham sp, string imageUploader, string imageUploader2,string imageUploader3, string imageUploader4,string imageUploader5, int typeID, string nameSanPhan, string desSanPham, int priceSanPham)
         {
             sp = database.SanPhams.Where(a => a.SanPham_Id == id).SingleOrDefault();
             sp.Main_img = "~/Content/Image_SanPham/" + imageUploader;
+            sp.Img1 = "~/Content/Image_SanPham/" + imageUploader2;
+            sp.Img2 = "~/Content/Image_SanPham/" + imageUploader3;
+            sp.Img3 = "~/Content/Image_SanPham/" + imageUploader4;
+            sp.Img4 = "~/Content/Image_SanPham/" + imageUploader5;
+            sp.SanPham_Name = nameSanPhan;
+            sp.SanPham_description = desSanPham;
+            sp.SanPham_Price = priceSanPham;
+            sp.Type_SanPham_id = typeID;
             database.Entry(sp).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
+            ViewBag.EditThanhCong = "Chỉnh sửa thành công!";
             return RedirectToAction("EditProduct", "Main");
         }
         //Delete Sản phẩm
