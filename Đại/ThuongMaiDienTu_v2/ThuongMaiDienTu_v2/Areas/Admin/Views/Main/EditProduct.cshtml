@@ -15,104 +15,109 @@
         </div>
     </div>
 </div>
-@using (Html.BeginForm("EditProduct", "Main", FormMethod.Post, new { id = Model.SanPham_Id }))
-{
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
                 <div class="col-lg-9 card ">
-                    <div class="card-header">
-                        <strong>Sản phẩm</strong>
-                    </div>
-                    <h1 style="color:red">@ViewBag.EditThanhCong</h1>
-                    <div class="card-body card-block">
-                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm</label></div>
-                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="nameSanPhan" placeholder="Text" value=" @Html.DisplayFor(model => model.SanPham_Name)" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                                <div class="col-12 col-md-9"><textarea name="desSanPham" value="@Html.DisplayFor(model => model.SanPham_description)" id="textarea-input" rows="9" placeholder="Content...  " class="form-control"> @Html.DisplayFor(model => model.SanPham_description) </textarea></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="select" class=" form-control-label">Loại sản phẩm</label></div>
-                                <div class="col-12 col-md-9">
-                                    <select value="@Html.DisplayFor(model => model.Type_SanPham_id)" name="typeID" id="select" class="form-control">
-                                        <option disabled style="background-color:black;color:white" value="@Html.DisplayFor(model => model.Type_SanPham_id)">
-                                            @if (Model.Type_SanPham_id == 1)
-                                            {
-                                                <p>Tee</p>
-                                            }
-                                            @if (Model.Type_SanPham_id == 2)
-                                            {
-                                                <p>Pant</p>
-                                            }
-                                            @if (Model.Type_SanPham_id == 3)
-                                            {
-                                                 <p>Jackket</p>
-                                            }
-                                            @if(Model.Type_SanPham_id == 4)
-                                            {
-                                                 <p>Accessories</p>
-                                            }
-                                        </option>
-                                        <option value="1">Tee</option>
-                                        <option value="2">Pant</option>
-                                        <option value="3">Jackket</option>
-                                        <option value="3">Accessories</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá sản phẩm</label></div>
-                                <div class="col-12 col-md-9"><input type="number" value=" @Html.DisplayFor(model => model.SanPham_Price)" id="text-input" name="priceSanPham" placeholder="VND" class="form-control"></div>
-                            </div>
+               
+                        <div class="card-header">
+                            <strong>Sản phẩm</strong>
+                        </div>
 
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh Chính</label></div>
-                                <div class="col-12 col-md-6">
-                                    <input type="file" value=" @Html.DisplayFor(model => model.Main_img)" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
-                                </div>
-                                <div class="col col-md-3"><img id="previewImg" class="ImgItemDemo" src="@Url.Content(Model.Main_img)" alt="Imgae product"></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 1</label></div>
-                                <div class="col-12 col-md-6">
-                                    <input type="file" value=" @Html.DisplayFor(model => model.Img1)" name="imageUploader2" onchange="ShowImg2(this, document.getElementById('previewImg2'))" />
-                                </div>
-                                <div class="col col-md-3"><img id="previewImg2" class="ImgItemDemo" src="@Url.Content(Model.Img1)" alt="Imgae product"></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 2</label></div>
-                                <div class="col-12 col-md-6">
-                                    <input type="file" value=" @Html.DisplayFor(model => model.Img2)" name="imageUploader3" onchange="ShowImg3(this, document.getElementById('previewImg3'))" />
-                                </div>
-                                <div class="col col-md-3"><img id="previewImg3" class="ImgItemDemo" src="@Url.Content(Model.Img2)" alt="Imgae product"></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 3</label></div>
-                                <div class="col-12 col-md-6">
-                                    <input type="file" value=" @Html.DisplayFor(model => model.Img3)" name="imageUploader4" onchange="ShowImg4(this, document.getElementById('previewImg4'))" />
-                                </div>
-                                <div class="col col-md-3"><img id="previewImg4" class="ImgItemDemo" src="@Url.Content(Model.Img3)" alt="Image product"></div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 4</label></div>
-                                <div class="col-12 col-md-6">
-                                    <input type="file" value=" @Html.DisplayFor(model => model.Img4)" name="imageUploader5" onchange="ShowImg5(this, document.getElementById('previewImg5'))" />
-                                </div>
-                                <div class="col col-md-3"><img id="previewImg5" class="ImgItemDemo" src="@Url.Content(Model.Img4)" alt="Imgae product"></div>
-                            </div>
-                            <br>
-                            <button class="btnFixItem">CHỈNH SỮA</button>
-                            @using (Html.BeginForm("DelProduct", "Main", FormMethod.Post, new { id = Model.SanPham_Id }))
-                            {
-                                <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm  @Html.DisplayFor(a => Model.SanPham_Name)  ?') " href="@Url.Action("DelProduct", "Main", new { id = Model.SanPham_Id })"><button class="btnDelItem">XOÁ</button></a>
-                            }
-                        </form>
+                        <h1 style="color:red">@ViewBag.EditThanhCong</h1>
+                        <div class="card-body card-block">
+                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    @using (Html.BeginForm("EditProduct", "Main", FormMethod.Post, new { id = Model.SanPham_Id }))
+                                    {
+                                    <div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm</label></div>
+                                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="nameSanPhan" placeholder="Text" value=" @Html.DisplayFor(model => model.SanPham_Name)" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
+                                            <div class="col-12 col-md-9"><textarea name="desSanPham" value="@Html.DisplayFor(model => model.SanPham_description)" id="textarea-input" rows="9" placeholder="Content...  " class="form-control"> @Html.DisplayFor(model => model.SanPham_description) </textarea></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="select" class=" form-control-label">Loại sản phẩm</label></div>
+                                            <div class="col-12 col-md-9">
+                                                <select  name="typeID" id="select" class="form-control">
+                                                    <option value="0"  style="background-color:black;color:white">
+                                                        @if (Model.Type_SanPham_id == 1)
+                                                        {
+                                                            <p>Tee</p>
+                                                        }
+                                                        @if (Model.Type_SanPham_id == 2)
+                                                        {
+                                                            <p>Pant</p>
+                                                        }
+                                                        @if (Model.Type_SanPham_id == 3)
+                                                        {
+                                                            <p>Jackket</p>
+                                                        }
+                                                        @if (Model.Type_SanPham_id == 4)
+                                                        {
+                                                            <p>Accessories</p>
+                                                        }
+                                                    </option>
+                                                    <option value="1">Tee</option>
+                                                    <option value="2">Pant</option>
+                                                    <option value="3">Jackket</option>
+                                                    <option value="3">Accessories</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá sản phẩm</label></div>
+                                            <div class="col-12 col-md-9"><input type="number" value="@Html.DisplayFor(model => model.SanPham_Price)" id="text-input" name="priceSanPham" placeholder="VND" class="form-control"></div>
+                                        </div>
+
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh Chính</label></div>
+                                            <div class="col-12 col-md-6">
+                                                <input type="file" value="@Html.DisplayFor(model => model.Main_img)" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
+                                            </div>
+                                            <div class="col col-md-3"><img id="previewImg" class="ImgItemDemo" src="@Url.Content(Model.Main_img)" alt="Imgae product"></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 1</label></div>
+                                            <div class="col-12 col-md-6">
+                                                <input type="file" value="@Html.DisplayFor(model => model.Img1)" name="imageUploader2" onchange="ShowImg2(this, document.getElementById('previewImg2'))" />
+                                            </div>
+                                            <div class="col col-md-3"><img id="previewImg2" class="ImgItemDemo" src="@Url.Content(Model.Img1)" alt="Imgae product"></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 2</label></div>
+                                            <div class="col-12 col-md-6">
+                                                <input type="file" value="@Html.DisplayFor(model => model.Img2)" name="imageUploader3" onchange="ShowImg3(this, document.getElementById('previewImg3'))" />
+                                            </div>
+                                            <div class="col col-md-3"><img id="previewImg3" class="ImgItemDemo" src="@Url.Content(Model.Img2)" alt="Imgae product"></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 3</label></div>
+                                            <div class="col-12 col-md-6">
+                                                <input type="file" value="@Html.DisplayFor(model => model.Img3)" name="imageUploader4" onchange="ShowImg4(this, document.getElementById('previewImg4'))" />
+                                            </div>
+                                            <div class="col col-md-3"><img id="previewImg4" class="ImgItemDemo" src="@Url.Content(Model.Img3)" alt="Image product"></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh 4</label></div>
+                                            <div class="col-12 col-md-6">
+                                                <input type="file" value="@Html.DisplayFor(model => model.Img4)" name="imageUploader5" onchange="ShowImg5(this, document.getElementById('previewImg5'))" />
+                                            </div>
+                                            <div class="col col-md-3"><img id="previewImg5" class="ImgItemDemo" src="@Url.Content(Model.Img4)" alt="Imgae product"></div>
+                                        </div>
+                                        <br>
+                                        <button class="btnFixItem">CHỈNH SỮA</button>
+                                    </div>
+                                    }
+                                    @*---------------Controllers Delete Product-------------------*@
+                                    <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm @Html.DisplayFor(a => Model.SanPham_Name)  ?') " href="@Url.Action("DelProduct", "Main", new { id = Model.SanPham_Id })"><button class="btnDelItem">XOÁ</button></a>
+                                </form>
+                        </div>
                     </div>
-                </div>
+               
                 <div class="col-lg-3">
                     <div class="card">
                         <div class="card-header">
@@ -155,5 +160,5 @@
         <!-- modal add addItem -->
         <!-- modal add addItem -->
     </div>
-}
+
 

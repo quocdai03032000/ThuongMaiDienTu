@@ -62,13 +62,13 @@
                                             @*      @Html.DisplayFor(modelItem => item.img)*@
                                             <img src="@Url.Content(item.Main_img)" alt="ismg_sanPham" style="width:35px;height:35px" />
                                         </td>
-                                        <td class="table_DauSach_btn">
+                                        <!--<td class="table_DauSach_btn">-->
                                             @* <a href="@Url.Action("EditProduct","Main",new {id=item.SanPham_Id })"><i class="fas fa-wrench"> </i></a>*@
-                                            <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm   @Html.DisplayFor(a=>item.SanPham_Name) với mã @Html.DisplayFor(a=>item.SanPham_Id)')" href="@Url.Action("DelProduct","Main",new { id=item.SanPham_Id})"><i class="fas fa-trash-alt">  </i></a>
-                                        </td>
+                                          @*  <a onclick="return confirm('Bạn chắc chắc muốn xóa sản phẩm   @Html.DisplayFor(a=>item.SanPham_Name) với mã @Html.DisplayFor(a=>item.SanPham_Id)')" href="@Url.Action("DelProduct","Main",new { id=item.SanPham_Id})"><i class="fas fa-trash-alt">  </i></a*@
+                                        <!--</td>-->
                                     </tr>
                                 }
-                            </tbody>
+                             </tbody>
                             </tbody>
                         </table>
                     </div>
@@ -80,7 +80,7 @@
 <!-- modal add addItem -->
 <!-- modal add addItem -->
 <!-- modal add addItem -->
-@using (Html.BeginForm("AddProduct", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddProduct", "Main", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     @Html.AntiForgeryToken();
@@ -105,7 +105,7 @@
                         <div class="col col-md-3"><label for="select" class=" form-control-label">Loại sản phẩm</label></div>
                         <div class="col-12 col-md-9">
                             <select name="tyleID" id="select" class="form-control">
-                                <option required value="0">Chọn loại sản phẩm</option>
+                                <option required  value="0">Chọn loại sản phẩm</option>
                                 <option value="1">Tee</option>
                                 <option value="2">Pant</option>
                                 <option value="3">Jackket</option>
