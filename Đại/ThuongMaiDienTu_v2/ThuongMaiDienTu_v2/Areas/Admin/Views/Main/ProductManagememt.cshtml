@@ -46,10 +46,10 @@
                                             <a href="@Url.Action("EditProduct","Main",new {id=item.SanPham_Id })"> @Html.DisplayFor(modelItem => item.SanPham_Name)</a>
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Type_SanPham)
+                                            @Html.DisplayFor(modelItem => item.Type_SanPham.Type_name)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Type_SanPham_id)
+                                            @Html.DisplayFor(modelItem => item.SanPhamDetail.Soluong)
                                         </td>
 
                                         <td>
