@@ -40,7 +40,7 @@
                                     <tr>
 
                                         <td>
-                                            <a href="@Url.Action("EditProduct","Admin",new {id=item.SanPham_Id })"> @Html.DisplayFor(modelItem => item.SanPham_Name)</a>
+                                            <a href="@Url.Action("SuaSanPham","Admin",new {id=item.SanPham_Id })"> @Html.DisplayFor(modelItem => item.SanPham_Name)</a>
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Type_SanPham.Type_name)
@@ -78,6 +78,8 @@
 <!-- MODAL -->
 @using (Html.BeginForm("ThemSanPham", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken();
+
     <div class="addItemModal hide">
         <div class="col-lg-6 card addItemModal_inner">
             <div class="card-header">
@@ -88,16 +90,16 @@
                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm</label></div>
-                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="name" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
+                        <div class="col-12 col-md-9"><input required type="text" id="text-input" name="name" placeholder="Text" class="form-control"><small class="form-text text-muted">This is a help text</small></div>
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                        <div class="col-12 col-md-9"><textarea name="desc" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
+                        <div class="col-12 col-md-9"><textarea required name="desc" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="select" class=" form-control-label">Loại sản phẩm</label></div>
                         <div class="col-12 col-md-9">
-                            <select name="tyleID" id="select" class="form-control">
+                            <select name="tyleID" id="select" required class="form-control">
                                 <option value="0">Chọn loại sản phẩm</option>
                                 <option value="1">Tee</option>
                                 <option value="2">Pant</option>
@@ -108,7 +110,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá sản phẩm</label></div>
-                        <div class="col-12 col-md-9"><input type="number" id="text-input" name="price" placeholder="VND" class="form-control"></div>
+                        <div class="col-12 col-md-9"><input  readonly type="number" id="text-input" name="price" placeholder="VND" class="form-control"></div>
                     </div>
 
                     <div class="row form-group">
@@ -146,6 +148,7 @@
                             <img src="" id="previewImg5" alt="Hinh anh sản phảm">
                         </div>
                     </div>
+                
                     <br>
                     <button class="btnAddItem">THÊM SẢN PHẨM</button>
                 </form>
