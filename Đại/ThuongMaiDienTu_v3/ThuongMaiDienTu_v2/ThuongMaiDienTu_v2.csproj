@@ -306,6 +306,11 @@
     <Content Include="Areas\Admin\Views\Admin\ProductManagement.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\UserManagement.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\IMG2_scripts.js" />
+    <Content Include="Scripts\IMG3_scripts.js" />
+    <Content Include="Scripts\IMG4_scripts.js" />
+    <Content Include="Scripts\IMG5_scripts.js" />
+    <Content Include="Scripts\IMG_scripts.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -341,6 +346,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Resources\vendors\" />
+    <Folder Include="Content\Image_SanPham\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
