@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- ------------------------------------------------------------------------------------------------  -->
+<!-- ------------------------------------------------------------------------------------------------  -->
+<!-- ---------------------------------- EMPTY CART --------------------------------------------------  -->
+ @*<div class="wrap">
+    <div class="empty_cart">
+        <h1>Your cart</h1>
+        <h5>Your cart is currently empty.</h5>
+        <div class="empty_cart_back">
+            <a href="./AllProduct.html">CONTINUE SHOPPING <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+    </div>
+</div>*@ 
+<!-- ---------------------------------- EMPTY CART --------------------------------------------------  -->
+<div class="wrap">
+    <div class="cart">
+        <div class="cart_left">
+            <div class="cart_left_list">
+                <!-- item open -->
+                <div class="cart_left_list_item">
+                    <div class="cart_left_list_item_img"><img src="~/Resources/img/category_bag.jpg" alt="item"></div>
+                    <div class="cart_left_list_item_detail">
+                        <h3><a href="#"> Balo no 1 sang xịn</a></h3>
+                        <div class="item_desc">
+                            <br>
+                            <span>Size S | 100% cotton</span>
+                        </div>
+                        <div class="item_action">
+                            <a href="#" class="item_action_remove">XOÁ</a>
+                        </div>
+                    </div>
+                    <div class="cart_left_list_item_price"><span>500.000đ</span><del>800.000đ</del></div>
+                    <div class="cart_left_list_item_action">
+                        <div class="cart_left_list_item_action_wrap">
+                            <button>-</button>
+                            <input type="number" value="1">
+                            <button>+</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- item close -->
+                <!-- item open -->
+                <div class="cart_left_list_item">
+                    <div class="cart_left_list_item_img"><img src="~/Resources/img/category_jacket.jpg" alt="item"></div>
+                    <div class="cart_left_list_item_detail">
+                        <h3><a href="#"> Balo no 1 sang xịn</a></h3>
+                        <div class="item_desc">
+                            <br>
+                            <span>Size S | 100% cotton</span>
+                        </div>
+                        <div class="item_action">
+                            <a href="#" class="item_action_remove">XOÁ</a>
+                        </div>
+                    </div>
+                    <div class="cart_left_list_item_price"><span>500.000đ</span><del>800.000đ</del></div>
+                    <div class="cart_left_list_item_action">
+                        <div class="cart_left_list_item_action_wrap">
+                            <button>-</button>
+                            <input type="number" value="1">
+                            <button>+</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- item close -->
+                <!-- item open -->
+                <div class="cart_left_list_item">
+                    <div class="cart_left_list_item_img"><img src="~/Resources/img/category_tee.jpg" alt="item"></div>
+                    <div class="cart_left_list_item_detail">
+                        <h3><a href="#"> Balo no 1 sang xịn</a></h3>
+                        <div class="item_desc">
+                            <br>
+                            <span>Size S | 100% cotton</span>
+                        </div>
+                        <div class="item_action">
+                            <a href="#" class="item_action_remove">XOÁ</a>
+                        </div>
+                    </div>
+                    <div class="cart_left_list_item_price"><span>500.000đ</span><del>800.000đ</del></div>
+                    <div class="cart_left_list_item_action">
+                        <div class="cart_left_list_item_action_wrap">
+                            <button>-</button>
+                            <input type="number" value="1">
+                            <button>+</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- item close -->
+            </div>
+        </div>
+        <div class="cart_right">
+            <div class="cart_right_bill">
+                <h1 class="cart_right_bill_title">Thông tin đơn hàng</h1>
+                <div class="cart_right_bill_infor">
+                    <h4>Tạm tính (<span>3</span> sản phẩm)</h4>
+                    <h4>1.500.000đ</h4>
+                </div>
+                <div class="cart_right_bill_desc">
+                    <p>Phí vận chuyển sẽ được tính ở trang thanh toán. Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.</p>
+                </div>
+                <div class="cart_right_bill_total">
+                    <h4>Tổng cộng</h4>
+                    <h4 class="bill_price">1.500.000đ</h4>
+                </div>
+                <!-- <button class="cart_right_bill_btn_checkout">Đặt hàng</button> -->
+                <a href="#" class="cart_right_bill_link_checkout">Đặt hàng</a>
+            </div>
+        </div>
+    </div>
+</div>
