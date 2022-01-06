@@ -305,6 +305,7 @@
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ProductManagement.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\UserManagement.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ProductDetail.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\IMG2_scripts.js" />
     <Content Include="Scripts\IMG3_scripts.js" />
