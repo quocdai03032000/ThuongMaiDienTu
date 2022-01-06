@@ -322,9 +322,13 @@
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ProductManagement.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\UserManagement.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Scripts\jquery-3.3.1.min.map" />
     <Content Include="Areas\Admin\Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Areas\Admin\Views\Admin\SuaSanPham.cshtml" />
+=======
+    <Content Include="Areas\Admin\Views\Admin\ProductDetail.cshtml" />
+>>>>>>> 8b6d724fe3b1ba9ec7ff34834778732176dc24a3
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\IMG2_scripts.js" />
     <Content Include="Scripts\IMG3_scripts.js" />

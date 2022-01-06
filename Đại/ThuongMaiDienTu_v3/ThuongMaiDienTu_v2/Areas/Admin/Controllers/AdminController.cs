@@ -40,6 +40,12 @@ namespace ThuongMaiDienTu_v2.Areas.Admin.Controllers
             return View(database.SanPhams);
         }
 
+        //Product Detail
+        public ActionResult ProductDetail()
+        {
+            return View();
+        }
+
         //Order
         public ActionResult Order()
         {
@@ -52,6 +58,7 @@ namespace ThuongMaiDienTu_v2.Areas.Admin.Controllers
             Session.Abandon();
             return RedirectToAction("Login", "Admin");
         }
+
         //------------------------------------
         //------------- Http Post ------------
 
@@ -72,7 +79,14 @@ namespace ThuongMaiDienTu_v2.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult ThemSanPham(SanPham sp, string name, string desc, int price, int tyleID, string imageUploader, string imageUploader2, string imageUploader3, string imageUploader4, string imageUploader5)
         {
+<<<<<<< HEAD
                if (sp.imageUploader != null)
+=======
+            if (sp.imageUploader != null)
+            {
+                var check = database.SanPhams.Where(a => a.SanPham_Name == name).SingleOrDefault();
+                if (check == null)
+>>>>>>> 8b6d724fe3b1ba9ec7ff34834778732176dc24a3
                 {
                 var check = database.SanPhams.Where(a => a.SanPham_Name == name).SingleOrDefault();
                     if (check == null)
