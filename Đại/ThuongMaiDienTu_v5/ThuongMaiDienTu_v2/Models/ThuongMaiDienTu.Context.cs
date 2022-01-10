@@ -36,6 +36,7 @@ namespace ThuongMaiDienTu_v2.Models
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Infor> Infors { get; set; }
         public virtual DbSet<List_SanPham> List_SanPham { get; set; }
+        public virtual DbSet<ProductListCheckout> ProductListCheckouts { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<SanPhamDetail> SanPhamDetails { get; set; }
         public virtual DbSet<Size> Sizes { get; set; }

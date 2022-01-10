@@ -14,6 +14,12 @@ namespace ThuongMaiDienTu_v2.Models
     
     public partial class DonHang
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DonHang()
+        {
+            this.ProductListCheckouts = new HashSet<ProductListCheckout>();
+        }
+    
         public int DonHang_id { get; set; }
         public Nullable<int> Account_ID { get; set; }
         public Nullable<System.DateTime> NgayGio { get; set; }
@@ -26,5 +32,7 @@ namespace ThuongMaiDienTu_v2.Models
         public virtual Account Account { get; set; }
         public virtual DonHangInfor DonHangInfor { get; set; }
         public virtual TinhTrangDonHang TinhTrangDonHang { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductListCheckout> ProductListCheckouts { get; set; }
     }
 }

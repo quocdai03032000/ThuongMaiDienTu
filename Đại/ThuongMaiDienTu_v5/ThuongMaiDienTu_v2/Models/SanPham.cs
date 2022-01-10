@@ -37,7 +37,6 @@ namespace ThuongMaiDienTu_v2.Models
     
         public virtual SanPhamDetail SanPhamDetail { get; set; }
         public virtual Type_SanPham Type_SanPham { get; set; }
-
         [NotMapped]
         public HttpPostedFileBase imageUploader { get; set; }
         [NotMapped]
@@ -48,5 +47,6 @@ namespace ThuongMaiDienTu_v2.Models
         public HttpPostedFileBase imageUploader4 { get; set; }
         [NotMapped]
         public HttpPostedFileBase imageUploader5 { get; set; }
+
     }
 }

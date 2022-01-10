@@ -107,6 +107,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ProductListCheckouts">
+      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.ProductListCheckout">
+        <MappingFragment StoreEntitySet="ProductListCheckout">
+          <ScalarProperty Name="ProductListCheckout_id" ColumnName="ProductListCheckout_id" />
+          <ScalarProperty Name="DonHang_id" ColumnName="DonHang_id" />
+          <ScalarProperty Name="SanPham_id" ColumnName="SanPham_id" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SanPhams">
       <EntityTypeMapping TypeName="ThuongMaiDienTuModel.SanPham">
         <MappingFragment StoreEntitySet="SanPham">

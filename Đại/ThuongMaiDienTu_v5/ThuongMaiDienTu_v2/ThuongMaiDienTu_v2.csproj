@@ -170,6 +170,9 @@
     <Compile Include="Models\List_SanPham.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductListCheckout.cs">
+      <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SanPham.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
