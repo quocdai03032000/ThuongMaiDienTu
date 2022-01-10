@@ -28,10 +28,10 @@ namespace ThuongMaiDienTu_v2.Controllers
                 NewProduct[i] = Product[i];
                 LikeProduct[i] = Product2[i];
             }
-            
+
             viewModel.NewProduct = NewProduct.ToList();
             viewModel.LikeProduct = LikeProduct.ToList();
-            
+
             return View(viewModel);
         }
 
@@ -50,14 +50,93 @@ namespace ThuongMaiDienTu_v2.Controllers
             ViewBag.ProductDetail = detail;
             TempData["ProductDetail"] = id;
             return View();
-        }       
+        }
 
         // Checkout
+        [HttpGet]
         public ActionResult Checkout()
         {
-            TempData["ReturnUrl"] = "Checkout";
-            return View();
+            // Đặt hàng khi chưa login
+            if (Session["User"] == null)
+            {
+                TempData["ReturnUrl"] = "Checkout";
+                Cart ca = Session["Cart"] as Cart;
+                return View(ca);
+
+            }
+            else
+            {
+                TempData["ReturnUrl"] = "Checkout";
+                Cart ca = Session["Cart"] as Cart;
+
+                return View("Index", database.SanPhams.ToList());
+            }
         }
+        // Đặt hàng ship code 
+        public ActionResult OderCod(string name, string email,string diachi,string sodienthoai, string calc_shipping_provinces,string calc_shipping_district,string phuongxa)
+        {
+            Cart cart = Session["Cart"] as Cart;
+            if (Session["User"] == null)
+            {
+                int aa = cart.Items.Count();
+                DonHang donhang = new DonHang();
+                DonHangInfor dhinfo = new DonHangInfor();
+                foreach (var item in cart.Items)
+                {
+
+                    for (int i = 0; i < item.SoLuong; i++)
+                    {
+                        var sanpham = database.SanPhams.FirstOrDefault(a => a.SanPham_Id == item.sp.SanPham_Id);
+                        var sanphamDetail = database.SanPhamDetails.FirstOrDefault(a => a.SanPhamDetail_id == sanpham.SanPhamDetail_id);
+                        if(item.Size.Contains("S"))
+                        {
+                            sanphamDetail.S -= 1;
+                        }
+                        if (item.Size.Contains("M"))
+                        {
+                            sanphamDetail.M -= 1;
+                        }
+                        if (item.Size.Contains("L"))
+                        {
+                            sanphamDetail.L -= 1;
+                        }
+                        if (item.Size.Contains("XL"))
+                        {
+                            sanphamDetail.XL -= 1;
+                        }
+                        else if (item.Size.Contains("XXL"))
+                        {
+                            sanphamDetail.XXL -= 1;
+                        }
+                        sanpham.SoLuong -= 1;
+                        dhinfo.HoTen = name;
+                        dhinfo.Email = email;
+                        dhinfo.DiaChi = diachi;
+                        dhinfo.Sdt = sodienthoai;
+                        dhinfo.TinhThanh = calc_shipping_provinces; 
+                        dhinfo.QuanHuyen = calc_shipping_district;
+                        dhinfo.PhuongXa = phuongxa;
+                        database.DonHangInfors.Add(dhinfo);
+                    }
+                }
+                // add vào data đơn hàng
+                donhang.NgayGio = DateTime.Now;
+                donhang.TinhTrangDonHang_id = 1;
+                donhang.PhuongThucThanhToan = "COD";
+                donhang.TinhTrangThanhToan = "Chưa thanh toán";
+                donhang.Total = cart.Total;
+                donhang.DonHangInfor_id = dhinfo.DonHangInfor_id;
+
+                database.DonHangs.Add(donhang);
+                database.SaveChanges();
+                Session["ThanhCong"] = "suss";
+                /*cart.RemoveCartItem();*/
+                return RedirectToAction("Cart", "User");
+            }
+            else
+                return View();
+        }
+
         // Login
         public ActionResult Login()
         {
@@ -78,7 +157,7 @@ namespace ThuongMaiDienTu_v2.Controllers
         }
 
         //Contact
-        public ActionResult Contact ()
+        public ActionResult Contact()
         {
             ViewData["ReturnUrl"] = "AllProduct";
             return View();
@@ -121,7 +200,7 @@ namespace ThuongMaiDienTu_v2.Controllers
         {
             var check = database.Accounts.Where(a => a.Account_user == email && a.Account_password == password).SingleOrDefault();
             string ReturnUrl;
-            if(TempData["ReturnUrl"] == null)
+            if (TempData["ReturnUrl"] == null)
             {
                 ReturnUrl = "Index";
             }
@@ -141,17 +220,17 @@ namespace ThuongMaiDienTu_v2.Controllers
                 TempData["ErrorLogin"] = "Sai tên tài khoản hoặc mật khẩu";
                 return View("Login");
             }
-            
-        }        
+
+        }
 
         // Register
         [HttpPost]
         public ActionResult Register(string name, string phone, string email, string password)
         {
             var check = database.Accounts.Where(a => a.Account_user == email).SingleOrDefault();
-            if(check == null)
+            if (check == null)
             {
-                Account ac = new Account();                
+                Account ac = new Account();
                 ac.Account_user = email;
                 ac.Account_password = password;
                 ac.Account_role_id = 2;
@@ -163,7 +242,7 @@ namespace ThuongMaiDienTu_v2.Controllers
                 infor.Phone = phone;
                 database.Infors.Add(infor);
 
-                
+
 
                 database.SaveChanges();
                 return RedirectToAction("Login", "User");
@@ -173,7 +252,7 @@ namespace ThuongMaiDienTu_v2.Controllers
                 TempData["ErrorRegister"] = "Đã tồn tại Email này! Vui lòng đăng ký lại";
                 return View("Register");
             }
-            
+
         }
 
         [HttpPost]
@@ -195,14 +274,14 @@ namespace ThuongMaiDienTu_v2.Controllers
             return cart;
         }
 
-        
+
         public ActionResult AddToCart(int soLuong, string size)
         {
             int id = int.Parse(TempData["ProductDetail"].ToString());
             var sp = database.SanPhams.Where(a => a.SanPham_Id == id).SingleOrDefault();
-            if(sp!=null)
+            if (sp != null)
             {
-                if(sp.SoLuong!=0)
+                if (sp.SoLuong != 0)
                 {
                     GetCart().AddToCart(sp, soLuong, size);
                     return Redirect("/User/ProductDetail/" + id);
@@ -213,10 +292,10 @@ namespace ThuongMaiDienTu_v2.Controllers
         public ActionResult DelCart(int id, string size)
         {
             Cart cart = Session["Cart"] as Cart;
-            cart.RemoveCartItem(id,size);
+            cart.RemoveCartItem(id, size);
             return RedirectToAction("Cart", "User");
         }
 
-       
+
     }
 }
