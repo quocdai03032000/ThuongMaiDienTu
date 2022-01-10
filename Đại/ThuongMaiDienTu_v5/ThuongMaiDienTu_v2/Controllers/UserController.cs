@@ -130,7 +130,7 @@ namespace ThuongMaiDienTu_v2.Controllers
                 database.DonHangs.Add(donhang);
                 database.SaveChanges();
                 Session["ThanhCong"] = "suss";
-                /*cart.RemoveCartItem();*/
+                cart.RemoveCartAll();
                 return RedirectToAction("Cart", "User");
             }
             else

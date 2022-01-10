@@ -63,6 +63,11 @@ namespace ThuongMaiDienTu_v2.Models
 
             items.RemoveAll(a => a.sp.SanPham_Id == id && a.Size==size);
         }
+        public void RemoveCartAll()
+        {
+            items.Clear();
+            SumProduct = 0;
+        }
 
         public void TotalPrice()
         {
