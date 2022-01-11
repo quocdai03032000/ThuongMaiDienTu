@@ -141,18 +141,9 @@
     <Compile Include="Models\Account_role.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaoCao.cs">
-      <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BaoCaoGuest.cs">
-      <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\ChangeCurrency.cs" />
     <Compile Include="Models\DonHang.cs">
-      <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DonHangGuest.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonHangInfor.cs">
@@ -161,13 +152,7 @@
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Image.cs">
-      <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Infor.cs">
-      <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\List_SanPham.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductListCheckout.cs">

@@ -16,18 +16,6 @@
     <Property Name="Account_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Account_role_name" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="BaoCao">
-    <Key>
-      <PropertyRef Name="BaoCao_id" />
-    </Key>
-    <Property Name="BaoCao_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
-  <EntityType Name="BaoCaoGuest">
-    <Key>
-      <PropertyRef Name="BaoCaoGuest_id" />
-    </Key>
-    <Property Name="BaoCaoGuest_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
   <EntityType Name="DonHang">
     <Key>
       <PropertyRef Name="DonHang_id" />
@@ -40,12 +28,6 @@
     <Property Name="TinhTrangThanhToan" Type="nvarchar" MaxLength="50" />
     <Property Name="Total" Type="int" />
     <Property Name="DonHangInfor_id" Type="int" />
-  </EntityType>
-  <EntityType Name="DonHangGuest">
-    <Key>
-      <PropertyRef Name="DonHangGuest_id" />
-    </Key>
-    <Property Name="DonHangGuest_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="DonHangInfor">
     <Key>
@@ -66,15 +48,6 @@
     </Key>
     <Property Name="Feedback_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <EntityType Name="Image">
-    <Key>
-      <PropertyRef Name="Image_id" />
-    </Key>
-    <Property Name="Image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SanPham_id" Type="int" Nullable="false" />
-    <Property Name="Image" Type="nvarchar(max)" />
-    <Property Name="key" Type="bit" />
-  </EntityType>
   <EntityType Name="Infor">
     <Key>
       <PropertyRef Name="Infor_id" />
@@ -89,20 +62,15 @@
     <Property Name="PhuongXa" Type="nvarchar" MaxLength="50" />
     <Property Name="BuyHistory" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="List_SanPham">
-    <Key>
-      <PropertyRef Name="List_SanPham_id" />
-    </Key>
-    <Property Name="List_SanPham_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
   <EntityType Name="ProductListCheckout">
     <Key>
       <PropertyRef Name="ProductListCheckout_id" />
     </Key>
-    <Property Name="ProductListCheckout_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductListCheckout_id" Type="int" Nullable="false" />
     <Property Name="DonHang_id" Type="int" />
     <Property Name="SanPham_id" Type="int" />
     <Property Name="SoLuong" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="50" />
     <Property Name="Price" Type="int" />
   </EntityType>
   <EntityType Name="SanPham">
@@ -123,6 +91,7 @@
     <Property Name="Type_SanPham_id" Type="int" />
     <Property Name="SanPhamDetail_id" Type="int" />
     <Property Name="SoLuong" Type="int" />
+    <Property Name="StringPrice" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SanPhamDetail">
     <Key>
@@ -234,6 +203,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductListCheckout_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+    <End Role="ProductListCheckout" Type="Self.ProductListCheckout" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="SanPham_Id" />
+      </Principal>
+      <Dependent Role="ProductListCheckout">
+        <PropertyRef Name="SanPham_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SanPham_SanPhamDetail">
     <End Role="SanPhamDetail" Type="Self.SanPhamDetail" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
@@ -261,15 +242,10 @@
   <EntityContainer Name="ThuongMaiDienTuModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Account_role" EntityType="Self.Account_role" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="BaoCao" EntityType="Self.BaoCao" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="BaoCaoGuest" EntityType="Self.BaoCaoGuest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DonHangGuest" EntityType="Self.DonHangGuest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DonHangInfor" EntityType="Self.DonHangInfor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Infor" EntityType="Self.Infor" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="List_SanPham" EntityType="Self.List_SanPham" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductListCheckout" EntityType="Self.ProductListCheckout" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SanPhamDetail" EntityType="Self.SanPhamDetail" Schema="dbo" store:Type="Tables" />
@@ -299,6 +275,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_ProductListCheckout_DonHang" Association="Self.FK_ProductListCheckout_DonHang">
       <End Role="DonHang" EntitySet="DonHang" />
+      <End Role="ProductListCheckout" EntitySet="ProductListCheckout" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductListCheckout_SanPham" Association="Self.FK_ProductListCheckout_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
       <End Role="ProductListCheckout" EntitySet="ProductListCheckout" />
     </AssociationSet>
     <AssociationSet Name="FK_SanPham_SanPhamDetail" Association="Self.FK_SanPham_SanPhamDetail">

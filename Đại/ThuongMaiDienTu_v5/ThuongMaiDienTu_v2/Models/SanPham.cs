@@ -16,10 +16,13 @@ namespace ThuongMaiDienTu_v2.Models
 
     public partial class SanPham
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SanPham()
         {
+            this.ProductListCheckouts = new HashSet<ProductListCheckout>();
             Main_img = "~/Contents/images/add.png";
         }
+    
         public int SanPham_Id { get; set; }
         public string SanPham_Name { get; set; }
         public string SanPham_description { get; set; }
@@ -34,9 +37,13 @@ namespace ThuongMaiDienTu_v2.Models
         public Nullable<int> Type_SanPham_id { get; set; }
         public Nullable<int> SanPhamDetail_id { get; set; }
         public Nullable<int> SoLuong { get; set; }
+        public string StringPrice { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductListCheckout> ProductListCheckouts { get; set; }
         public virtual SanPhamDetail SanPhamDetail { get; set; }
         public virtual Type_SanPham Type_SanPham { get; set; }
+
         [NotMapped]
         public HttpPostedFileBase imageUploader { get; set; }
         [NotMapped]

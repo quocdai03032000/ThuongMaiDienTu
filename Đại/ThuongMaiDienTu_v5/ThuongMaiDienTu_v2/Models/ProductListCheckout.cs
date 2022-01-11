@@ -18,8 +18,10 @@ namespace ThuongMaiDienTu_v2.Models
         public Nullable<int> DonHang_id { get; set; }
         public Nullable<int> SanPham_id { get; set; }
         public Nullable<int> SoLuong { get; set; }
+        public string Size { get; set; }
         public Nullable<int> Price { get; set; }
     
         public virtual DonHang DonHang { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }

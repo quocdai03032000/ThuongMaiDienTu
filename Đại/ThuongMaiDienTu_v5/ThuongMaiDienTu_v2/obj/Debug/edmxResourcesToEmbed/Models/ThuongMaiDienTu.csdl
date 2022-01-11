@@ -20,18 +20,6 @@
     <Property Name="Account_role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_Account_role" FromRole="Account_role" ToRole="Account" />
   </EntityType>
-  <EntityType Name="BaoCao">
-    <Key>
-      <PropertyRef Name="BaoCao_id" />
-    </Key>
-    <Property Name="BaoCao_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
-  <EntityType Name="BaoCaoGuest">
-    <Key>
-      <PropertyRef Name="BaoCaoGuest_id" />
-    </Key>
-    <Property Name="BaoCaoGuest_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
   <EntityType Name="DonHang">
     <Key>
       <PropertyRef Name="DonHang_id" />
@@ -48,12 +36,6 @@
     <NavigationProperty Name="DonHangInfor" Relationship="Self.FK_DonHang_DonHangInfor1" FromRole="DonHang" ToRole="DonHangInfor" />
     <NavigationProperty Name="TinhTrangDonHang" Relationship="Self.FK_DonHang_TinhTrangDonHang" FromRole="DonHang" ToRole="TinhTrangDonHang" />
     <NavigationProperty Name="ProductListCheckouts" Relationship="Self.FK_ProductListCheckout_DonHang" FromRole="DonHang" ToRole="ProductListCheckout" />
-  </EntityType>
-  <EntityType Name="DonHangGuest">
-    <Key>
-      <PropertyRef Name="DonHangGuest_id" />
-    </Key>
-    <Property Name="DonHangGuest_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="DonHangInfor">
     <Key>
@@ -75,15 +57,6 @@
     </Key>
     <Property Name="Feedback_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
-  <EntityType Name="Image">
-    <Key>
-      <PropertyRef Name="Image_id" />
-    </Key>
-    <Property Name="Image_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SanPham_id" Type="Int32" Nullable="false" />
-    <Property Name="Image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="key" Type="Boolean" />
-  </EntityType>
   <EntityType Name="Infor">
     <Key>
       <PropertyRef Name="Infor_id" />
@@ -99,22 +72,18 @@
     <Property Name="BuyHistory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Account" Relationship="Self.FK_Infor_Account" FromRole="Infor" ToRole="Account" />
   </EntityType>
-  <EntityType Name="List_SanPham">
-    <Key>
-      <PropertyRef Name="List_SanPham_id" />
-    </Key>
-    <Property Name="List_SanPham_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
   <EntityType Name="ProductListCheckout">
     <Key>
       <PropertyRef Name="ProductListCheckout_id" />
     </Key>
-    <Property Name="ProductListCheckout_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductListCheckout_id" Type="Int32" Nullable="false" />
     <Property Name="DonHang_id" Type="Int32" />
     <Property Name="SanPham_id" Type="Int32" />
     <Property Name="SoLuong" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Int32" />
     <NavigationProperty Name="DonHang" Relationship="Self.FK_ProductListCheckout_DonHang" FromRole="ProductListCheckout" ToRole="DonHang" />
+    <NavigationProperty Name="SanPham" Relationship="Self.FK_ProductListCheckout_SanPham" FromRole="ProductListCheckout" ToRole="SanPham" />
   </EntityType>
   <EntityType Name="SanPham">
     <Key>
@@ -134,6 +103,8 @@
     <Property Name="Type_SanPham_id" Type="Int32" />
     <Property Name="SanPhamDetail_id" Type="Int32" />
     <Property Name="SoLuong" Type="Int32" />
+    <Property Name="StringPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProductListCheckouts" Relationship="Self.FK_ProductListCheckout_SanPham" FromRole="SanPham" ToRole="ProductListCheckout" />
     <NavigationProperty Name="SanPhamDetail" Relationship="Self.FK_SanPham_SanPhamDetail" FromRole="SanPham" ToRole="SanPhamDetail" />
     <NavigationProperty Name="Type_SanPham" Relationship="Self.FK_SanPham_Type_SanPham" FromRole="SanPham" ToRole="Type_SanPham" />
   </EntityType>
@@ -250,6 +221,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductListCheckout_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+    <End Role="ProductListCheckout" Type="Self.ProductListCheckout" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="SanPham_Id" />
+      </Principal>
+      <Dependent Role="ProductListCheckout">
+        <PropertyRef Name="SanPham_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SanPham_SanPhamDetail">
     <End Role="SanPhamDetail" Type="Self.SanPhamDetail" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
@@ -277,15 +260,10 @@
   <EntityContainer Name="ThuongMaiDienTuEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Accounts" EntityType="Self.Account" />
     <EntitySet Name="Account_role" EntityType="Self.Account_role" />
-    <EntitySet Name="BaoCaos" EntityType="Self.BaoCao" />
-    <EntitySet Name="BaoCaoGuests" EntityType="Self.BaoCaoGuest" />
     <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
-    <EntitySet Name="DonHangGuests" EntityType="Self.DonHangGuest" />
     <EntitySet Name="DonHangInfors" EntityType="Self.DonHangInfor" />
     <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
-    <EntitySet Name="Images" EntityType="Self.Image" />
     <EntitySet Name="Infors" EntityType="Self.Infor" />
-    <EntitySet Name="List_SanPham" EntityType="Self.List_SanPham" />
     <EntitySet Name="ProductListCheckouts" EntityType="Self.ProductListCheckout" />
     <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
     <EntitySet Name="SanPhamDetails" EntityType="Self.SanPhamDetail" />
@@ -315,6 +293,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_ProductListCheckout_DonHang" Association="Self.FK_ProductListCheckout_DonHang">
       <End Role="DonHang" EntitySet="DonHangs" />
+      <End Role="ProductListCheckout" EntitySet="ProductListCheckouts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductListCheckout_SanPham" Association="Self.FK_ProductListCheckout_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
       <End Role="ProductListCheckout" EntitySet="ProductListCheckouts" />
     </AssociationSet>
     <AssociationSet Name="FK_SanPham_SanPhamDetail" Association="Self.FK_SanPham_SanPhamDetail">

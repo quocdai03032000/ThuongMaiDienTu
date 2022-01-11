@@ -19,20 +19,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BaoCaos">
-      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.BaoCao">
-        <MappingFragment StoreEntitySet="BaoCao">
-          <ScalarProperty Name="BaoCao_id" ColumnName="BaoCao_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BaoCaoGuests">
-      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.BaoCaoGuest">
-        <MappingFragment StoreEntitySet="BaoCaoGuest">
-          <ScalarProperty Name="BaoCaoGuest_id" ColumnName="BaoCaoGuest_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DonHangs">
       <EntityTypeMapping TypeName="ThuongMaiDienTuModel.DonHang">
         <MappingFragment StoreEntitySet="DonHang">
@@ -44,13 +30,6 @@
           <ScalarProperty Name="TinhTrangThanhToan" ColumnName="TinhTrangThanhToan" />
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="DonHangInfor_id" ColumnName="DonHangInfor_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DonHangGuests">
-      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.DonHangGuest">
-        <MappingFragment StoreEntitySet="DonHangGuest">
-          <ScalarProperty Name="DonHangGuest_id" ColumnName="DonHangGuest_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -75,16 +54,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Images">
-      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Image">
-        <MappingFragment StoreEntitySet="Image">
-          <ScalarProperty Name="Image_id" ColumnName="Image_id" />
-          <ScalarProperty Name="SanPham_id" ColumnName="SanPham_id" />
-          <ScalarProperty Name="Image1" ColumnName="Image" />
-          <ScalarProperty Name="key" ColumnName="key" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Infors">
       <EntityTypeMapping TypeName="ThuongMaiDienTuModel.Infor">
         <MappingFragment StoreEntitySet="Infor">
@@ -100,13 +69,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="List_SanPham">
-      <EntityTypeMapping TypeName="ThuongMaiDienTuModel.List_SanPham">
-        <MappingFragment StoreEntitySet="List_SanPham">
-          <ScalarProperty Name="List_SanPham_id" ColumnName="List_SanPham_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ProductListCheckouts">
       <EntityTypeMapping TypeName="ThuongMaiDienTuModel.ProductListCheckout">
         <MappingFragment StoreEntitySet="ProductListCheckout">
@@ -114,6 +76,7 @@
           <ScalarProperty Name="DonHang_id" ColumnName="DonHang_id" />
           <ScalarProperty Name="SanPham_id" ColumnName="SanPham_id" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
           <ScalarProperty Name="Price" ColumnName="Price" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -135,6 +98,7 @@
           <ScalarProperty Name="Type_SanPham_id" ColumnName="Type_SanPham_id" />
           <ScalarProperty Name="SanPhamDetail_id" ColumnName="SanPhamDetail_id" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="StringPrice" ColumnName="StringPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

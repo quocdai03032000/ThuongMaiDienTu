@@ -27,15 +27,10 @@ namespace ThuongMaiDienTu_v2.Models
     
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Account_role> Account_role { get; set; }
-        public virtual DbSet<BaoCao> BaoCaos { get; set; }
-        public virtual DbSet<BaoCaoGuest> BaoCaoGuests { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
-        public virtual DbSet<DonHangGuest> DonHangGuests { get; set; }
         public virtual DbSet<DonHangInfor> DonHangInfors { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Infor> Infors { get; set; }
-        public virtual DbSet<List_SanPham> List_SanPham { get; set; }
         public virtual DbSet<ProductListCheckout> ProductListCheckouts { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<SanPhamDetail> SanPhamDetails { get; set; }
