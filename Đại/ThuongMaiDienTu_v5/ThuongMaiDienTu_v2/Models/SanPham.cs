@@ -54,6 +54,5 @@ namespace ThuongMaiDienTu_v2.Models
         public HttpPostedFileBase imageUploader4 { get; set; }
         [NotMapped]
         public HttpPostedFileBase imageUploader5 { get; set; }
-
     }
 }

@@ -71,7 +71,7 @@
           <Key>
             <PropertyRef Name="ProductListCheckout_id" />
           </Key>
-          <Property Name="ProductListCheckout_id" Type="int" Nullable="false" />
+          <Property Name="ProductListCheckout_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DonHang_id" Type="int" />
           <Property Name="SanPham_id" Type="int" />
           <Property Name="SoLuong" Type="int" />
@@ -376,7 +376,7 @@
           <Key>
             <PropertyRef Name="ProductListCheckout_id" />
           </Key>
-          <Property Name="ProductListCheckout_id" Type="Int32" Nullable="false" />
+          <Property Name="ProductListCheckout_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DonHang_id" Type="Int32" />
           <Property Name="SanPham_id" Type="Int32" />
           <Property Name="SoLuong" Type="Int32" />
