@@ -58,6 +58,11 @@ namespace ThuongMaiDienTu_v2.Models
             }
             
         }
+        public int Totalitems()
+        {
+            var totalI = items.Sum(a => a.sp.SanPham_Price * a.SoLuong);
+            return (int)totalI;
+        }
         public void RemoveCartItem(int id, string size)
         {
 

@@ -94,9 +94,17 @@ namespace ThuongMaiDienTu_v2.Controllers
                 DonHang donhang = new DonHang();
                 DonHangInfor dhinfo = new DonHangInfor();
                 ProductListCheckout proList = new ProductListCheckout();
+                donhang.NgayGio = DateTime.Now;
+                donhang.TinhTrangDonHang_id = 1;
+                donhang.PhuongThucThanhToan = "COD";
+                donhang.TinhTrangThanhToan = "Chưa thanh toán";
+                donhang.Total = cart.Total;
+                database.DonHangs.Add(donhang);
+
+                database.SaveChanges();
                 foreach (var item in cart.Items)
                 {
-                 
+
                     for (int i = 0; i < item.SoLuong; i++)
                     {
                         var sanpham = database.SanPhams.FirstOrDefault(a => a.SanPham_Id == item.sp.SanPham_Id);
@@ -121,7 +129,7 @@ namespace ThuongMaiDienTu_v2.Controllers
                         {
                             sanphamDetail.XXL -= 1;
                         }
-                     
+
                         sanpham.SoLuong -= 1;
                         dhinfo.HoTen = name;
                         dhinfo.Email = email;
@@ -134,22 +142,14 @@ namespace ThuongMaiDienTu_v2.Controllers
 
                         proList.DonHang_id = donhang.DonHang_id;
                         proList.SanPham_id = item.sp.SanPham_Id;
-                        proList.SoLuong = item.sp.SoLuong;
-                        proList.Price = item.sp.SanPham_Price;
+                        proList.SoLuong = item.SoLuong;
+                        proList.Price = cart.Totalitems();
+                        proList.Size = item.Size;
                         database.ProductListCheckouts.Add(proList);
                     }
-                    
                 }
-              
-                // add vào data đơn hàng
-                donhang.NgayGio = DateTime.Now;
-                donhang.TinhTrangDonHang_id = 1;
-                donhang.PhuongThucThanhToan = "COD";
-                donhang.TinhTrangThanhToan = "Chưa thanh toán";
-                donhang.Total = cart.Total;
                 donhang.DonHangInfor_id = dhinfo.DonHangInfor_id;
 
-                database.DonHangs.Add(donhang);
                 database.SaveChanges();
                 Session["ThanhCong"] = "suss";
                 cart.RemoveCartAll();
@@ -162,6 +162,16 @@ namespace ThuongMaiDienTu_v2.Controllers
                 DonHang donhang = new DonHang();
                 DonHangInfor dhinfo = new DonHangInfor();
                 ProductListCheckout proList = new ProductListCheckout();
+
+                donhang.NgayGio = DateTime.Now;
+                donhang.TinhTrangDonHang_id = 1;
+                donhang.Account_ID = user.id;
+                donhang.PhuongThucThanhToan = "COD";
+                donhang.TinhTrangThanhToan = "Chưa thanh toán";
+                donhang.Total = cart.Total;
+                database.DonHangs.Add(donhang);
+
+                database.SaveChanges();
                 foreach (var item in cart.Items)
                 {
 
@@ -202,23 +212,14 @@ namespace ThuongMaiDienTu_v2.Controllers
 
                         proList.DonHang_id = donhang.DonHang_id;
                         proList.SanPham_id = item.sp.SanPham_Id;
-                        proList.SoLuong = item.sp.SoLuong;
-                        proList.Price = item.sp.SanPham_Price;
+                        proList.SoLuong = item.SoLuong;
+                        proList.Price = cart.Totalitems();
+                        proList.Size = item.Size;
                         database.ProductListCheckouts.Add(proList);
                     }
-
                 }
-
-                // add vào data đơn hàng
-                donhang.NgayGio = DateTime.Now;
-                donhang.TinhTrangDonHang_id = 1;
-                donhang.Account_ID = user.id;
-                donhang.PhuongThucThanhToan = "COD";
-                donhang.TinhTrangThanhToan = "Chưa thanh toán";
-                donhang.Total = cart.Total;
                 donhang.DonHangInfor_id = dhinfo.DonHangInfor_id;
 
-                database.DonHangs.Add(donhang);
                 database.SaveChanges();
                 Session["ThanhCong"] = "suss";
                 cart.RemoveCartAll();
