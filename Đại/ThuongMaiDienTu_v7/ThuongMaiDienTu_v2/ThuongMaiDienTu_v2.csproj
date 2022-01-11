@@ -166,6 +166,8 @@
     <Compile Include="Models\Infor.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PaypalConfiguration.cs" />
+    <Compile Include="Models\PaypalLogger.cs" />
     <Compile Include="Models\ProductListCheckout.cs">
       <DependentUpon>ThuongMaiDienTu.tt</DependentUpon>
     </Compile>
@@ -353,6 +355,12 @@
     <Content Include="Views\User\CartNull.cshtml" />
     <Content Include="Views\User\ConfirmPaymentClient.cshtml" />
     <Content Include="Views\Email\newoder.html" />
+    <Content Include="Views\User\AccessoryProduct.cshtml" />
+    <Content Include="Views\User\Failure.cshtml" />
+    <Content Include="Views\User\JacketProduct.cshtml" />
+    <Content Include="Views\User\PantProduct.cshtml" />
+    <Content Include="Views\User\Success.cshtml" />
+    <Content Include="Views\User\TeeProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
