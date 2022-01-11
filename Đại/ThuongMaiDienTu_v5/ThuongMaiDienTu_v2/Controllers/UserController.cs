@@ -56,25 +56,33 @@ namespace ThuongMaiDienTu_v2.Controllers
         [HttpGet]
         public ActionResult Checkout(Account account)
         {
+            Cart ca = Session["Cart"] as Cart;
             // Đặt hàng khi chưa login
             if (Session["User"] == null)
             {
                 TempData["ReturnUrl"] = "Checkout";
-                Cart ca = Session["Cart"] as Cart;
+              
                 return View(ca);
 
             }
-            else
+            else if(Session["User"] != null)
             {
                 TempData["ReturnUrl"] = "Checkout";
-                Cart ca = Session["Cart"] as Cart;
-                string email = Session["Email"].ToString();
-                account = database.Accounts.Where(a => a.Account_user == email).SingleOrDefault();
+                
+                Account user = Session["User"] as Account;
+                
+               /* account = database.Accounts.Where(a => a.Account_user == user).SingleOrDefault();*/
+                Infor infoccount = database.Infors.Where(b => b.Account_id == user.id).SingleOrDefault();
 
-              
-
-                return View(ca);
+                ViewBag.diachitinh = infoccount.TinhThanh;
+                ViewBag.diachihuyen = infoccount.QuanHuyen;
+                ViewBag.phuongxa = infoccount.PhuongXa;
+                ViewBag.tenKH = infoccount.Name;
+                ViewBag.sdtKH = infoccount.Phone;
+                ViewBag.diachiKH = infoccount.DiaChi;
+                ViewBag.emailKH = user.Account_user;               
             }
+            return View(ca);
         }
         // Đặt hàng ship code 
         public ActionResult OderCod(string name, string email,string diachi,string sodienthoai, string calc_shipping_provinces,string calc_shipping_district,string phuongxa)
@@ -88,13 +96,11 @@ namespace ThuongMaiDienTu_v2.Controllers
                 ProductListCheckout proList = new ProductListCheckout();
                 foreach (var item in cart.Items)
                 {
-
+                 
                     for (int i = 0; i < item.SoLuong; i++)
                     {
                         var sanpham = database.SanPhams.FirstOrDefault(a => a.SanPham_Id == item.sp.SanPham_Id);
                         var sanphamDetail = database.SanPhamDetails.FirstOrDefault(a => a.SanPhamDetail_id == sanpham.SanPhamDetail_id);
-                     
-
                         if (item.Size.Contains("S") && sanphamDetail.S > 0)
                         {
                             sanphamDetail.S -= 1;
@@ -128,11 +134,11 @@ namespace ThuongMaiDienTu_v2.Controllers
 
                         proList.DonHang_id = donhang.DonHang_id;
                         proList.SanPham_id = item.sp.SanPham_Id;
-                        proList.SoLuong = cart.SumProduct;
-                        proList.Price = cart.Total;
+                        proList.SoLuong = item.sp.SoLuong;
+                        proList.Price = item.sp.SanPham_Price;
                         database.ProductListCheckouts.Add(proList);
-
                     }
+                    
                 }
               
                 // add vào data đơn hàng
@@ -150,7 +156,75 @@ namespace ThuongMaiDienTu_v2.Controllers
                 return RedirectToAction("Index", "User");
             }
             else
-                return View();
+            {
+                Account user = Session["User"] as Account;
+                int aa = cart.Items.Count();
+                DonHang donhang = new DonHang();
+                DonHangInfor dhinfo = new DonHangInfor();
+                ProductListCheckout proList = new ProductListCheckout();
+                foreach (var item in cart.Items)
+                {
+
+                    for (int i = 0; i < item.SoLuong; i++)
+                    {
+                        var sanpham = database.SanPhams.FirstOrDefault(a => a.SanPham_Id == item.sp.SanPham_Id);
+                        var sanphamDetail = database.SanPhamDetails.FirstOrDefault(a => a.SanPhamDetail_id == sanpham.SanPhamDetail_id);
+                        if (item.Size.Contains("S") && sanphamDetail.S > 0)
+                        {
+                            sanphamDetail.S -= 1;
+                        }
+                        if (item.Size.Contains("M") && sanphamDetail.M > 0)
+                        {
+                            sanphamDetail.M -= 1;
+                        }
+                        if (item.Size.Contains("L") && sanphamDetail.L > 0)
+                        {
+                            sanphamDetail.L -= 1;
+                        }
+                        if (item.Size.Contains("XL") && sanphamDetail.XL > 0)
+                        {
+                            sanphamDetail.XL -= 1;
+                        }
+                        if (item.Size.Contains("XXL") && sanphamDetail.XXL > 0)
+                        {
+                            sanphamDetail.XXL -= 1;
+                        }
+
+                        sanpham.SoLuong -= 1;
+                        dhinfo.HoTen = name;
+                        dhinfo.Email = email;
+                        dhinfo.DiaChi = diachi;
+                        dhinfo.Sdt = sodienthoai;
+                        dhinfo.TinhThanh = calc_shipping_provinces;
+                        dhinfo.QuanHuyen = calc_shipping_district;
+                        dhinfo.PhuongXa = phuongxa;
+                        database.DonHangInfors.Add(dhinfo);
+
+                        proList.DonHang_id = donhang.DonHang_id;
+                        proList.SanPham_id = item.sp.SanPham_Id;
+                        proList.SoLuong = item.sp.SoLuong;
+                        proList.Price = item.sp.SanPham_Price;
+                        database.ProductListCheckouts.Add(proList);
+                    }
+
+                }
+
+                // add vào data đơn hàng
+                donhang.NgayGio = DateTime.Now;
+                donhang.TinhTrangDonHang_id = 1;
+                donhang.Account_ID = user.id;
+                donhang.PhuongThucThanhToan = "COD";
+                donhang.TinhTrangThanhToan = "Chưa thanh toán";
+                donhang.Total = cart.Total;
+                donhang.DonHangInfor_id = dhinfo.DonHangInfor_id;
+
+                database.DonHangs.Add(donhang);
+                database.SaveChanges();
+                Session["ThanhCong"] = "suss";
+                cart.RemoveCartAll();
+                return RedirectToAction("Index", "User");
+            }              
+            
         }
 
         // Login

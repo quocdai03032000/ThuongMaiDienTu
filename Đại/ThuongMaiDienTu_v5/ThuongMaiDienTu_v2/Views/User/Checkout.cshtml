@@ -14,27 +14,27 @@
                     <h4 class="checkout_left_account">Bạn đã có tài khoản? <a href="@Url.Action("Login", "User")">Đăng nhập</a></h4>
                     <form action="#" class="checkout_left_form">
                         <div class="form_group">
-                            <input type="text" name="name" class="form_input form_name" placeholder="Họ và tên">
+                            <input type="text" value="@ViewBag.tenKH" name="name" class="form_input form_name" placeholder="Họ và tên">
                         </div>
                         <div class="form_group">
                             <div class="form_flex">
-                                <input type="text" name="email" class="form_input form_email" placeholder="Email">
-                                <input type="text" name="sodienthoai" class="form_input form_phone" placeholder="SĐT">
+                                <input type="text" value="@ViewBag.emailKH" name="email" class="form_input form_email" placeholder="Email">
+                                <input type="text" value="@ViewBag.sdtKH" name="sodienthoai" class="form_input form_phone" placeholder="SĐT">
                             </div>
                         </div>
                         <div class="form_group">
-                            <input type="text" name="diachi" class="form_input form_address" placeholder="Địa chỉ">
+                            <input type="text" value="@ViewBag.diachiKH" name="diachi" class="form_input form_address" placeholder="Địa chỉ">
                         </div>
                         <div class="form_group">
                             <div class="form_flex">
                                 <select name="calc_shipping_provinces" id="" class="form_input form_input_thanhPho">
-                                    <option value="">Chọn tỉnh / thành</option>
+                                    <option value="@ViewBag.diachitinh">Chọn tỉnh / thành</option>
                                 </select>
                                 <select name="calc_shipping_district" id="" class="form_input form_input_huyen">
-                                    <option value="">Chọn quận / huyện</option>
+                                    <option value="@ViewBag.diachihuyen">Chọn quận / huyện</option>
                                 </select>
                                 <select name="phuongxa" id="" class="form_input form_input_xa">
-                                    <option value="">Chọn phường / xã</option>
+                                    <option value="@ViewBag.phuongxa">Chọn phường / xã</option>
                                 </select>
                             </div>
                         </div>
@@ -63,14 +63,10 @@
                             <img src="~/Resources/img/momo2.png" alt="momo">
                             <label for="momo">Thanh toán qua MOMO</label>
                         </div>
-                        <div class="payment_group">
-                            <input type="radio" id="cod" name="payment" value="cod">
-                            <img src="~/Resources/img/cod.jpg" alt="cod">
-                            <label for="cod">Thanh toán khi nhận hàng (COD)</label>
-                        </div>
+                       
                     </div>
                 </div>
-                }
+                
             </div>
             <div class="checkout_right">
                 <!-- item -->
