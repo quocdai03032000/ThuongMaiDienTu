@@ -54,7 +54,7 @@ namespace ThuongMaiDienTu_v2.Controllers
 
         // Checkout
         [HttpGet]
-        public ActionResult Checkout()
+        public ActionResult Checkout(Account account)
         {
             // Đặt hàng khi chưa login
             if (Session["User"] == null)
@@ -68,8 +68,12 @@ namespace ThuongMaiDienTu_v2.Controllers
             {
                 TempData["ReturnUrl"] = "Checkout";
                 Cart ca = Session["Cart"] as Cart;
+                string email = Session["Email"].ToString();
+                account = database.Accounts.Where(a => a.Account_user == email).SingleOrDefault();
 
-                return View("Index", database.SanPhams.ToList());
+              
+
+                return View(ca);
             }
         }
         // Đặt hàng ship code 
@@ -81,6 +85,7 @@ namespace ThuongMaiDienTu_v2.Controllers
                 int aa = cart.Items.Count();
                 DonHang donhang = new DonHang();
                 DonHangInfor dhinfo = new DonHangInfor();
+                ProductListCheckout proList = new ProductListCheckout();
                 foreach (var item in cart.Items)
                 {
 
@@ -88,37 +93,48 @@ namespace ThuongMaiDienTu_v2.Controllers
                     {
                         var sanpham = database.SanPhams.FirstOrDefault(a => a.SanPham_Id == item.sp.SanPham_Id);
                         var sanphamDetail = database.SanPhamDetails.FirstOrDefault(a => a.SanPhamDetail_id == sanpham.SanPhamDetail_id);
-                        if(item.Size.Contains("S"))
+                     
+
+                        if (item.Size.Contains("S") && sanphamDetail.S > 0)
                         {
                             sanphamDetail.S -= 1;
                         }
-                        if (item.Size.Contains("M"))
+                        if (item.Size.Contains("M") && sanphamDetail.M > 0)
                         {
                             sanphamDetail.M -= 1;
                         }
-                        if (item.Size.Contains("L"))
+                        if (item.Size.Contains("L") && sanphamDetail.L > 0)
                         {
                             sanphamDetail.L -= 1;
                         }
-                        if (item.Size.Contains("XL"))
+                        if (item.Size.Contains("XL") && sanphamDetail.XL > 0)
                         {
                             sanphamDetail.XL -= 1;
                         }
-                        else if (item.Size.Contains("XXL"))
+                        if (item.Size.Contains("XXL") && sanphamDetail.XXL > 0)
                         {
                             sanphamDetail.XXL -= 1;
                         }
+                     
                         sanpham.SoLuong -= 1;
                         dhinfo.HoTen = name;
                         dhinfo.Email = email;
                         dhinfo.DiaChi = diachi;
                         dhinfo.Sdt = sodienthoai;
-                        dhinfo.TinhThanh = calc_shipping_provinces; 
+                        dhinfo.TinhThanh = calc_shipping_provinces;
                         dhinfo.QuanHuyen = calc_shipping_district;
                         dhinfo.PhuongXa = phuongxa;
                         database.DonHangInfors.Add(dhinfo);
+
+                        proList.DonHang_id = donhang.DonHang_id;
+                        proList.SanPham_id = item.sp.SanPham_Id;
+                        proList.SoLuong = cart.SumProduct;
+                        proList.Price = cart.Total;
+                        database.ProductListCheckouts.Add(proList);
+
                     }
                 }
+              
                 // add vào data đơn hàng
                 donhang.NgayGio = DateTime.Now;
                 donhang.TinhTrangDonHang_id = 1;
@@ -131,7 +147,7 @@ namespace ThuongMaiDienTu_v2.Controllers
                 database.SaveChanges();
                 Session["ThanhCong"] = "suss";
                 cart.RemoveCartAll();
-                return RedirectToAction("Cart", "User");
+                return RedirectToAction("Index", "User");
             }
             else
                 return View();
