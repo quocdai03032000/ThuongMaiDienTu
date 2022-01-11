@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Commom;
+using Newtonsoft.Json.Linq;
 using PagedList;
 using PagedList.Mvc;
 using System;
@@ -467,10 +468,16 @@ namespace ThuongMaiDienTu_v2.Controllers
                 infor.Account_id = ac.id;
                 infor.Name = name;
                 infor.Phone = phone;
+
+                // Gửi gmail cho khách hàng
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Views/Email/newoder.html"));
+                content = content.Replace("{{Email}}", ac.Account_user);
+                content = content.Replace("{{Phone}}", phone);
+
+                var toEmail = email;
+                new Class1().SendMail(toEmail, "Kích hoạt tài khoản thành công", content);
+
                 database.Infors.Add(infor);
-
-                
-
                 database.SaveChanges();
                 return RedirectToAction("Login", "User");
             }

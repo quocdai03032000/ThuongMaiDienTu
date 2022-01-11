@@ -352,6 +352,7 @@
     <Content Include="Views\User\Contact.cshtml" />
     <Content Include="Views\User\CartNull.cshtml" />
     <Content Include="Views\User\ConfirmPaymentClient.cshtml" />
+    <Content Include="Views\Email\newoder.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -373,6 +374,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commom\Commom.csproj">
+      <Project>{2f9e5956-cf0c-4fd6-a8d0-e2b8b5bff45b}</Project>
+      <Name>Commom</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

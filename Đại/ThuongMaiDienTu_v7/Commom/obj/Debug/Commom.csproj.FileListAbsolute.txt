@@ -1,0 +1,6 @@
+C:\Users\laanh\OneDrive\Máy tính\ThuongMaiDienTu\Đại\ThuongMaiDienTu_v7\Commom\bin\Debug\Commom.dll
+C:\Users\laanh\OneDrive\Máy tính\ThuongMaiDienTu\Đại\ThuongMaiDienTu_v7\Commom\bin\Debug\Commom.pdb
+C:\Users\laanh\OneDrive\Máy tính\ThuongMaiDienTu\Đại\ThuongMaiDienTu_v7\Commom\obj\Debug\Commom.csproj.AssemblyReference.cache
+C:\Users\laanh\OneDrive\Máy tính\ThuongMaiDienTu\Đại\ThuongMaiDienTu_v7\Commom\obj\Debug\Commom.csproj.CoreCompileInputs.cache
+C:\Users\laanh\OneDrive\Máy tính\ThuongMaiDienTu\Đại\ThuongMaiDienTu_v7\Commom\obj\Debug\Commom.dll
+C:\Users\laanh\OneDrive\Máy tính\ThuongMaiDienTu\Đại\ThuongMaiDienTu_v7\Commom\obj\Debug\Commom.pdb
